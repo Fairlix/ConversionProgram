@@ -1,0 +1,456 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:ConversionProgram.Pages"
+      xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" x:Class="ConversionProgram.Pages.ConverterPage"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ConverterPage">
+
+    <Border Background="Transparent">
+        <StackPanel>
+            <!-- Distance converter -->
+            <GroupBox
+            Header="Distance"
+            Style="{StaticResource UsualGroupBox}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="24" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox
+                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="0"
+                    Text="{Binding DistanceUnit1, StringFormat=N,ConverterCulture=de-DE}"
+                    MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                    KeyDown="UpdatePropertyOnEnter" />
+
+                    <ComboBox
+                    Style="{StaticResource DefaultComboBox}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="1"
+                    ItemsSource="{Binding DistanceUnitList}"
+                    SelectedItem="{Binding SelectedDistanceUnit1}"
+                    DisplayMemberPath="UnitNameAndAcronym" />
+
+                    <Button
+                    Style="{StaticResource OrdinaryConverterButton}"
+                    Content="Swap Units"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="2"
+                    Command="{Binding SwapDistanceUnitCommand}" />
+
+                    <TextBox
+                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="3"
+                    Text="{Binding DistanceUnit2, StringFormat=N,ConverterCulture=de-DE}"
+                    MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                    KeyDown="UpdatePropertyOnEnter" />
+
+                    <ComboBox
+                    Style="{StaticResource DefaultComboBox}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="4"
+                    ItemsSource="{Binding DistanceUnitList}"
+                    SelectedItem="{Binding SelectedDistanceUnit2}"
+                    DisplayMemberPath="UnitNameAndAcronym" />
+                </Grid>
+            </GroupBox>
+
+            <!-- Temperature converter -->
+            <GroupBox
+            Header="Temperature"
+            Style="{StaticResource UsualGroupBox}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="24" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox
+                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="0"
+                    Text="{Binding TemperatureUnit1, StringFormat=N,ConverterCulture=de-DE}"
+                    MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                    KeyDown="UpdatePropertyOnEnter" />
+
+                    <ComboBox
+                    Style="{StaticResource DefaultComboBox}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="1"
+                    ItemsSource="{Binding TemperatureUnitList}"
+                    SelectedItem="{Binding SelectedTemperatureUnit1}"
+                    DisplayMemberPath="UnitNameAndAcronym" />
+
+                    <Button
+                    Style="{StaticResource OrdinaryConverterButton}"
+                    Content="Swap Units"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="2"
+                    Command="{Binding SwapTemperatureUnitCommand}" />
+
+                    <TextBox
+                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="3"
+                    Text="{Binding TemperatureUnit2, StringFormat=N,ConverterCulture=de-DE}"
+                    MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                    KeyDown="UpdatePropertyOnEnter" />
+
+                    <ComboBox
+                    Style="{StaticResource DefaultComboBox}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="4"
+                    ItemsSource="{Binding TemperatureUnitList}"
+                    SelectedItem="{Binding SelectedTemperatureUnit2}"
+                    DisplayMemberPath="UnitNameAndAcronym" />
+                </Grid>
+            </GroupBox>
+
+            <!-- Velocity converter -->
+            <GroupBox
+            Header="Velocity"
+            Style="{StaticResource UsualGroupBox}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="24" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox
+                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="0"
+                    Text="{Binding VelocityUnit1, StringFormat=N,ConverterCulture=de-DE}"
+                    MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                    KeyDown="UpdatePropertyOnEnter" />
+
+                    <ComboBox
+                    Style="{StaticResource DefaultComboBox}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="1"
+                    ItemsSource="{Binding VelocityUnitList}"
+                    SelectedItem="{Binding SelectedVelocityUnit1}"
+                    DisplayMemberPath="UnitNameAndAcronym" />
+
+                    <Button
+                    Style="{StaticResource OrdinaryConverterButton}"
+                    Content="Swap Units"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="2"
+                    Command="{Binding SwapVelocityUnitCommand}" />
+
+                    <TextBox
+                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="3"
+                    Text="{Binding VelocityUnit2, StringFormat=N,ConverterCulture=de-DE}"
+                    MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                    KeyDown="UpdatePropertyOnEnter" />
+
+                    <ComboBox
+                    Style="{StaticResource DefaultComboBox}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="4"
+                    ItemsSource="{Binding VelocityUnitList}"
+                    SelectedItem="{Binding SelectedVelocityUnit2}"
+                    DisplayMemberPath="UnitNameAndAcronym" />
+                </Grid>
+            </GroupBox>
+
+            <!-- Frequency converter -->
+            <GroupBox
+            Header="Frequency"
+            Style="{StaticResource UsualGroupBox}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="24" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox
+                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="0"
+                    Text="{Binding FrequencyUnit1, StringFormat=N,ConverterCulture=de-DE}"
+                    MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                    KeyDown="UpdatePropertyOnEnter" />
+
+                    <ComboBox
+                    Style="{StaticResource DefaultComboBox}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="1"
+                    ItemsSource="{Binding FrequencyUnitList}"
+                    SelectedItem="{Binding SelectedFrequencyUnit1}"
+                    DisplayMemberPath="UnitNameAndAcronym" />
+
+                    <Button
+                    Style="{StaticResource OrdinaryConverterButton}"
+                    Content="Swap Units"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="2"
+                    Command="{Binding SwapFrequencyUnitCommand}" />
+
+                    <TextBox
+                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="3"
+                    Text="{Binding FrequencyUnit2, StringFormat=N,ConverterCulture=de-DE}"
+                    MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                    KeyDown="UpdatePropertyOnEnter" />
+
+                    <ComboBox
+                    Style="{StaticResource DefaultComboBox}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="4"
+                    ItemsSource="{Binding FrequencyUnitList}"
+                    SelectedItem="{Binding SelectedFrequencyUnit2}"
+                    DisplayMemberPath="UnitNameAndAcronym" />
+                </Grid>
+            </GroupBox>
+
+            <!-- Mass converter -->
+            <GroupBox
+            Header="Mass"
+            Style="{StaticResource UsualGroupBox}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="24" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox
+                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="0"
+                    Text="{Binding MassUnit1, StringFormat=N,ConverterCulture=de-DE}"
+                    MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                    KeyDown="UpdatePropertyOnEnter" />
+
+                    <ComboBox
+                    Style="{StaticResource DefaultComboBox}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="1"
+                    ItemsSource="{Binding MassUnitList}"
+                    SelectedItem="{Binding SelectedMassUnit1}"
+                    DisplayMemberPath="UnitNameAndAcronym" />
+
+                    <Button
+                    Style="{StaticResource OrdinaryConverterButton}"
+                    Content="Swap Units"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="2"
+                    Command="{Binding SwapMassUnitCommand}" />
+
+                    <TextBox
+                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="3"
+                    Text="{Binding MassUnit2, StringFormat=N,ConverterCulture=de-DE}"
+                    MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                    KeyDown="UpdatePropertyOnEnter" />
+
+                    <ComboBox
+                    Style="{StaticResource DefaultComboBox}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="4"
+                    ItemsSource="{Binding MassUnitList}"
+                    SelectedItem="{Binding SelectedMassUnit2}"
+                    DisplayMemberPath="UnitNameAndAcronym" />
+                </Grid>
+            </GroupBox>
+
+            <!-- Area converter -->
+            <GroupBox
+            Header="Area"
+            Style="{StaticResource UsualGroupBox}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="24" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox
+                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="0"
+                    Text="{Binding AreaUnit1, StringFormat=N,ConverterCulture=de-DE}"
+                    MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                    KeyDown="UpdatePropertyOnEnter" />
+
+                    <ComboBox
+                    Style="{StaticResource DefaultComboBox}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="1"
+                    ItemsSource="{Binding AreaUnitList}"
+                    SelectedItem="{Binding SelectedAreaUnit1}"
+                    DisplayMemberPath="UnitNameAndAcronym" />
+
+                    <Button
+                    Style="{StaticResource OrdinaryConverterButton}"
+                    Content="Swap Units"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="2"
+                    Command="{Binding SwapAreaUnitCommand}" />
+
+                    <TextBox
+                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="3"
+                    Text="{Binding AreaUnit2, StringFormat=N,ConverterCulture=de-DE}"
+                    MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                    KeyDown="UpdatePropertyOnEnter" />
+
+                    <ComboBox
+                    Style="{StaticResource DefaultComboBox}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="4"
+                    ItemsSource="{Binding AreaUnitList}"
+                    SelectedItem="{Binding SelectedAreaUnit2}"
+                    DisplayMemberPath="UnitNameAndAcronym" />
+                </Grid>
+            </GroupBox>
+
+            <!-- Time converter -->
+            <GroupBox
+            Header="Time"
+            Style="{StaticResource UsualGroupBox}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="24" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox
+                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="0"
+                    Text="{Binding TimeUnit1, StringFormat=N,ConverterCulture=de-DE}"
+                    MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                    KeyDown="UpdatePropertyOnEnter" />
+
+                    <ComboBox
+                    Style="{StaticResource DefaultComboBox}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="1"
+                    ItemsSource="{Binding TimeUnitList}"
+                    SelectedItem="{Binding SelectedTimeUnit1}"
+                    DisplayMemberPath="UnitNameAndAcronym" />
+
+                    <Button
+                    Style="{StaticResource OrdinaryConverterButton}"
+                    Content="Swap Units"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="2"
+                    Command="{Binding SwapTimeUnitCommand}" />
+
+                    <TextBox
+                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="3"
+                    Text="{Binding TimeUnit2, StringFormat=N,ConverterCulture=de-DE}"
+                    MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                    KeyDown="UpdatePropertyOnEnter" />
+
+                    <ComboBox
+                    Style="{StaticResource DefaultComboBox}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="4"
+                    ItemsSource="{Binding TimeUnitList}"
+                    SelectedItem="{Binding SelectedTimeUnit2}"
+                    DisplayMemberPath="UnitNameAndAcronym" />
+                </Grid>
+            </GroupBox>
+        </StackPanel>
+    </Border>
+</Page>

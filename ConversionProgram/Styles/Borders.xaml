@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ConversionProgram">
+
+    <!-- Styling the border of the button of the TopToolBar -->
+    <Style x:Key="RoundedBorder" TargetType="{x:Type Border}">
+        <Setter Property="CornerRadius" Value="2" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="Black" />
+    </Style>
+</ResourceDictionary>

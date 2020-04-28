@@ -1,0 +1,52 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ConversionProgram">
+
+    <!-- GroupBox Main Style -->
+    <BorderGapMaskConverter x:Key="BorderGapMaskConverter" />
+    <Style x:Key="UsualGroupBox" TargetType="{x:Type GroupBox}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Opacity" Value="01" />
+        <Setter Property="Margin" Value="5" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontWeight" Value="DemiBold" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderBrush" Value="{StaticResource ToolBarDarkGrayBrush}" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type GroupBox}">
+                    <Grid SnapsToDevicePixels="True">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="6" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="6" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="6" />
+                        </Grid.RowDefinitions>
+                        <Border Name="Header" Padding="3,1,3,1" Grid.Row="0" Grid.RowSpan="1" Grid.Column="1" Margin="0, 0, 0 ,5">
+                            <ContentPresenter ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                        <Border Padding="0, 20, 0, 0" Margin="0, -5, 0 ,-5" CornerRadius="4" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="4" BorderThickness="1" BorderBrush="White" Background="{TemplateBinding Background}" />
+
+                        <ContentPresenter Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        <Border Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="4"  BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="5">
+                            <Border.OpacityMask>
+                                <MultiBinding Converter="{StaticResource BorderGapMaskConverter}" ConverterParameter="7">
+                                    <Binding ElementName="Header" Path="ActualWidth" />
+                                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource Self}" />
+                                    <Binding Path="ActualHeight" RelativeSource="{RelativeSource Self}" />
+                                </MultiBinding>
+                            </Border.OpacityMask>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

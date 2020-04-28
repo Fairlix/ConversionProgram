@@ -1,0 +1,708 @@
+﻿<Page x:Class="ConversionProgram.Pages.CalculatorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:ConversionProgram.Pages"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CalculatorPage">
+
+    <!-- Page content, setting the background -->
+    <Border Background="Transparent">
+        <StackPanel>
+            <!-- Grid first row -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Fuel cost GroupBox -->
+                <GroupBox
+                    Style="{StaticResource UsualGroupBox}"
+                    Header="Fuel Cost" Grid.Row="0" Grid.Column="0" ToolTip="Formula to calculate fuel costs:&#x0a;
+                        (liters fuel consumed per 100km * (Kilometers driven / 100)) * fuel peice per liter.&#x0a;
+                        For example: (7 liters fuel per 100km * (650 Kilometers driven / 100)) * 1,41€ per liter unleaded fuel = 64,16">
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="125" />
+                            <ColumnDefinition Width="125" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                            Style="{StaticResource OrdinaryLabel}"
+                            Content="Fuel price per liter:"
+                            ToolTip="How much does one liter of fuel cost you?"
+                            HorizontalAlignment="Left"
+                            Grid.Row="0"
+                            Grid.Column="0">
+                        </Label>
+                        <TextBox
+                            Style="{StaticResource OrdinaryTextBoxCalculators}"
+                            Name="FuelPriceTextBox"
+                            ToolTip="How much does one liter of fuel cost you?"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Text="{Binding FuelPrice, UpdateSourceTrigger=Default,
+                                   StringFormat={}{0:c}, ConverterCulture=de-DE}"
+                            MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                            KeyDown="UpdatePropertyOnEnter">
+                        </TextBox>
+
+                        <Label
+                            Style="{StaticResource OrdinaryLabel}"
+                            Content="Distance Driven in km:"
+                            ToolTip="How many Kilometer did you travel?"
+                            HorizontalAlignment="Left"
+                            Grid.Row="1"
+                            Grid.Column="0">
+                        </Label>
+                        <TextBox
+                            Style="{StaticResource OrdinaryTextBoxCalculators}"
+                            Name="DistanceDrivenTextBox"
+                            ToolTip="How many Kilometer did you travel?"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Text="{Binding DistanceDriven, UpdateSourceTrigger=Default,
+                                   StringFormat=N0, ConverterCulture=de-DE}"
+                            MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                            KeyDown="UpdatePropertyOnEnter">
+                        </TextBox>
+
+                        <Label
+                            Style="{StaticResource OrdinaryLabel}"
+                            Content="Liters per 100km:"
+                            ToolTip="How many liters does your vehicle consume per 100km driven?"
+                            HorizontalAlignment="Left"
+                            Grid.Row="2"
+                            Grid.Column="0">
+                        </Label>
+                        <TextBox
+                            Style="{StaticResource OrdinaryTextBoxCalculators}"
+                            Name="LitersPer100kmTextBox"
+                            ToolTip="How many liters does your vehicle consume per 100km driven?"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Text="{Binding LitersPer100km, UpdateSourceTrigger=Default,
+                                   StringFormat=N1, ConverterCulture=de-DE}"
+                            MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                            KeyDown="UpdatePropertyOnEnter">
+                        </TextBox>
+
+                        <Label
+                            Style="{StaticResource OrdinaryLabel}"
+                            Content="Total Fuel Cost:"
+                            ToolTip="Total cost of your trip"
+                            HorizontalAlignment="Left"
+                            Grid.Row="3"
+                            Grid.Column="0">
+                        </Label>
+                        <TextBox
+                            Style="{StaticResource IsReadOnlyTextBox}"
+                            ToolTip="Total cost of your trip"
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Text="{Binding ResultFuelCost, UpdateSourceTrigger=PropertyChanged,
+                                   StringFormat={}{0:c}, ConverterCulture=de-DE}">
+                        </TextBox>
+                    </Grid>
+                </GroupBox>
+
+                <!-- Energy cost GroupBox -->
+                <GroupBox
+                    Style="{StaticResource UsualGroupBox}"
+                    Header="Energy Cost" Grid.Row="0" Grid.Column="1"
+                    ToolTip="Formula to calculate energy costs:&#x0a;
+                        (watt consumption of device per hour / 1000) * hours the device has been activated for * costs per kw/h&#x0a;
+                        For example: (20 watts / 1000) * 9 hours active * 0,28€ per kw/h = 0,05€">
+
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="130" />
+                            <ColumnDefinition Width="120" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                            Style="{StaticResource OrdinaryLabel}"
+                            Content="Watt consumption (w):"
+                            ToolTip="How many watt does your device consume?"
+                            HorizontalAlignment="Left"
+                            Grid.Row="0"
+                            Grid.Column="0">
+                        </Label>
+                        <TextBox
+                            Style="{StaticResource OrdinaryTextBoxCalculators}"
+                            Name="WattConsumptionTextBox"
+                            ToolTip="How many watt does your device consume?"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Text="{Binding WattConsumption, UpdateSourceTrigger=Default,
+                                   StringFormat=N0, ConverterCulture=de-DE}"
+                            MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                            KeyDown="UpdatePropertyOnEnter">
+                        </TextBox>
+
+                        <Label
+                            Style="{StaticResource OrdinaryLabel}"
+                            Content="Utilization time (h):"
+                            ToolTip="How many hours have you used your device?"
+                            HorizontalAlignment="Left"
+                            Grid.Row="1"
+                            Grid.Column="0">
+                        </Label>
+                        <TextBox
+                            Style="{StaticResource OrdinaryTextBoxCalculators}"
+                            Name="UtilizationTimeTextBox"
+                            ToolTip="How many hours have you used your device?"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Text="{Binding UtilizationTime, UpdateSourceTrigger=Default,
+                            StringFormat=N0, ConverterCulture=de-DE}"
+                            MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                            KeyDown="UpdatePropertyOnEnter">
+                        </TextBox>
+
+                        <Label
+                            Style="{StaticResource OrdinaryLabel}"
+                            Content="Energy Cost per kw/h:"
+                            ToolTip="How much does one kilowatt hour cost you?"
+                            HorizontalAlignment="Left"
+                            Grid.Row="2"
+                            Grid.Column="0">
+                        </Label>
+                        <TextBox
+                            Style="{StaticResource OrdinaryTextBoxCalculators}"
+                            Name="EnergyCostTextBox"
+                            ToolTip="How much does one kilowatt hour cost you?"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Text="{Binding EnergyCost, UpdateSourceTrigger=Default,
+                            StringFormat={}{0:c}, ConverterCulture=de-DE}"
+                            MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                            KeyDown="UpdatePropertyOnEnter">
+                        </TextBox>
+
+                        <Label
+                            Style="{StaticResource OrdinaryLabel}"
+                            Content="Total Energy Cost:"
+                            ToolTip="Total energy consumption cost"
+                            HorizontalAlignment="Left"
+                            Grid.Row="3"
+                            Grid.Column="0">
+                        </Label>
+                        <TextBox
+                            Style="{StaticResource IsReadOnlyTextBox}"
+                            ToolTip="Total energy consumption cost"
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Text="{Binding ResultEnergyCost, UpdateSourceTrigger=PropertyChanged,
+                            StringFormat={}{0:c}, ConverterCulture=de-DE}">
+                        </TextBox>
+                    </Grid>
+                </GroupBox>
+
+                <!-- BMI GroupBox -->
+                <GroupBox
+                    Style="{StaticResource UsualGroupBox}"
+                    Header="Body Mass Index (BMI)" Grid.Row="0" Grid.Column="2">
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="130" />
+                            <ColumnDefinition Width="120" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                            Style="{StaticResource OrdinaryLabel}"
+                            Content="Body weight in kg:"
+                            ToolTip="How much do you weigh in kilograms?"
+                            HorizontalAlignment="Left"
+                            Grid.Row="0"
+                            Grid.Column="0">
+                        </Label>
+                        <TextBox
+                            Style="{StaticResource OrdinaryTextBoxCalculators}"
+                            Name="tbBodyWeight"
+                            ToolTip="How much do you weigh in kilograms?"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Text="{Binding BodyWeight, UpdateSourceTrigger=Default,
+                                   StringFormat=N0, ConverterCulture=de-DE}"
+                            MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                            KeyDown="UpdatePropertyOnEnter">
+                        </TextBox>
+
+                        <Label
+                            Style="{StaticResource OrdinaryLabel}"
+                            Content="Body height in cm"
+                            ToolTip="How tall are you in cm?"
+                            HorizontalAlignment="Left"
+                            Grid.Row="1"
+                            Grid.Column="0">
+                        </Label>
+                        <TextBox
+                            Style="{StaticResource OrdinaryTextBoxCalculators}"
+                            Name="tbBodyHeight"
+                            ToolTip="How tall are you in cm?"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Text="{Binding BodyHeight, UpdateSourceTrigger=Default,
+                                   StringFormat=N0, ConverterCulture=de-DE}"
+                            MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                            KeyDown="UpdatePropertyOnEnter">
+                        </TextBox>
+
+                        <Label
+                            Style="{StaticResource OrdinaryLabel}"
+                            Content="Body Mass Index:"
+                            ToolTip="Your body mass index."
+                            HorizontalAlignment="Left"
+                            Grid.Row="2"
+                            Grid.Column="0">
+                        </Label>
+                        <TextBox
+                            Style="{StaticResource IsReadOnlyTextBox}"
+                            ToolTip="Your body mass index."
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Text="{Binding ResultBodyMassIndex, UpdateSourceTrigger=PropertyChanged,
+                                   ConverterCulture=de-DE, StringFormat=N2}">
+                        </TextBox>
+                        <TextBlock
+                            ToolTip="Your BMI in text"
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Margin="3"
+                            Width="100"
+                            HorizontalAlignment="Center"
+                            Text="{Binding ResultBodyMassIndexText, UpdateSourceTrigger=PropertyChanged}">
+                        </TextBlock>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+
+            <!-- Grid second row -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Kintetic energy calculator -->
+                <GroupBox
+                Style="{StaticResource UsualGroupBox}"
+                Header="Kinetic Energy Calculator" Grid.Row="1" Grid.Column="0"
+                ToolTip="Formula to calculate kinetic energy in joule:&#x0a;
+                (m/s):(0,5 * mass of object) * velocity²h&#x0a;
+                For example: (0,5 * 20 gramm object) * 175 m/s ² = 306,250 Joule">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                        Style="{StaticResource OrdinaryLabel}"
+                        Content="Mass:"
+                        ToolTip="How heavy is your object?"
+                        HorizontalAlignment="Left"
+                        Grid.Row="0"
+                        Grid.Column="0">
+                        </Label>
+                        <TextBox
+                        Style="{StaticResource OrdinaryTextBoxCalculators}"
+                        Name="MassTextBox"
+                        ToolTip="How heavy is your object?"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Margin="10 0 20 0"
+                        Text="{Binding MassKineticEnergy, UpdateSourceTrigger=Default,
+                        StringFormat=n,
+                        ConverterCulture=de-DE}"
+                        MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                        KeyDown="UpdatePropertyOnEnter">
+                        </TextBox>
+                        <ComboBox
+                        Style="{StaticResource DefaultComboBox}"
+                        Name="MassUnitComboBox"
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Width="75"
+                        Height="20"
+                        ItemsSource="{Binding MassUnitList}"
+                        SelectedItem="{Binding SelectedMassUnit}"
+                        DisplayMemberPath="UnitAcronym">
+                        </ComboBox>
+
+                        <Label
+                        Style="{StaticResource OrdinaryLabel}"
+                        Content="Velocity:"
+                        ToolTip="How fast is your object travelling?"
+                        HorizontalAlignment="Left"
+                        Grid.Row="1"
+                        Grid.Column="0">
+                        </Label>
+                        <TextBox
+                        Style="{StaticResource OrdinaryTextBoxCalculators}"
+                        Name="VelocityTextBox"
+                        ToolTip="How fast is your object travelling?"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="10 0 20 0"
+                        Text="{Binding VelocityKineticEnergy, UpdateSourceTrigger=Default,
+                        StringFormat=n,
+                        ConverterCulture=de-DE}"
+                        MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                        KeyDown="UpdatePropertyOnEnter">
+                        </TextBox>
+                        <ComboBox
+                        Style="{StaticResource DefaultComboBox}"
+                        Name="VelocityComboBox"
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Width="75"
+                        Height="20"
+                        ItemsSource="{Binding VelocityUnitList}"
+                        SelectedItem="{Binding SelectedVelocityUnit}"
+                        DisplayMemberPath="UnitAcronym">
+                        </ComboBox>
+
+                        <!-- Label to use space-->
+                        <Label
+                        Height="26"
+                        Grid.Row="2"
+                        Grid.Column="0">
+                        </Label>
+
+                        <Label
+                        Style="{StaticResource OrdinaryLabel}"
+                        Content="Joule: "
+                        HorizontalAlignment="Left"
+                        Grid.Row="3"
+                        Grid.Column="0">
+                        </Label>
+                        <TextBox
+                        Style="{StaticResource IsReadOnlyTextBox}"
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Margin="-10 0 0 0"
+                        Text="{Binding ResultKineticEnergy, UpdateSourceTrigger=PropertyChanged,
+                        StringFormat=N3,
+                        ConverterCulture=de-DE}">
+                        </TextBox>
+                    </Grid>
+                </GroupBox>
+
+                <!-- Random number generator -->
+                <GroupBox
+            Style="{StaticResource UsualGroupBox}"
+            Header="Random Number Generator" Grid.Row="0" Grid.Column="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                       Style="{StaticResource OrdinaryLabel}"
+                       Content="Minimal value:"
+                       ToolTip="Define start of the range of the random number"
+                       HorizontalAlignment="Left"
+                       Grid.Row="0"
+                       Grid.Column="0">
+                        </Label>
+                        <TextBox
+                        Style="{StaticResource OrdinaryTextBoxCalculators}"
+                         Name="tbRandomNumberStartFrom"
+                         ToolTip="Define start of the range of the random number"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         Margin="3"
+                         Text="{Binding MinimalRandomNumber, UpdateSourceTrigger=Default,
+                         StringFormat=N0, ConverterCulture=de-DE}"
+                        MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                        KeyDown="UpdatePropertyOnEnter">
+                        </TextBox>
+
+                        <Label
+                        Style="{StaticResource OrdinaryLabel}"
+                        Content="Maximal value:"
+                        ToolTip="Define end of the range of the random number"
+                        HorizontalAlignment="Left"
+                        Grid.Row="1"
+                        Grid.Column="0">
+                        </Label>
+                        <TextBox
+                        Style="{StaticResource OrdinaryTextBoxCalculators}"
+                        Name="tbRandomNumberEndAt"
+                        ToolTip="Define end of the range of the random number"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="3"
+                        Text="{Binding MaximumRandomNumber, UpdateSourceTrigger=Default,
+                        StringFormat=N0, ConverterCulture=de-DE}"
+                        MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                        KeyDown="UpdatePropertyOnEnter">
+                        </TextBox>
+
+                        <Label
+                        Style="{StaticResource OrdinaryLabel}"
+                        Content="Random number:"
+                        HorizontalAlignment="Left"
+                        Grid.Row="2"
+                        Grid.Column="0">
+                        </Label>
+                        <TextBox
+                        Style="{StaticResource IsReadOnlyTextBox}"
+                        HorizontalAlignment="Center"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Margin="3"
+                        Text="{Binding RandomNumberResult, UpdateSourceTrigger=PropertyChanged,
+                        StringFormat=N0, ConverterCulture=de-DE}">
+                        </TextBox>
+
+                        <Button
+                        Style="{StaticResource OrdinaryConverterButton}"
+                        Grid.Column="1"
+                        Grid.Row="3"
+                        Width="110"
+                        HorizontalAlignment="Center"
+                        Content="Generate"
+                        Command="{Binding GenerateRandomNumberCommand}">
+                        </Button>
+                    </Grid>
+                </GroupBox>
+
+                <!-- Days passed-->
+                <GroupBox
+            Style="{StaticResource UsualGroupBox}"
+            Header="Days passed" Grid.Row="0" Grid.Column="2">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                       Style="{StaticResource OrdinaryLabel}"
+                       Content="Start date:"
+                       ToolTip="Define the first date"
+                       HorizontalAlignment="Left"
+                       Grid.Row="0"
+                       Grid.Column="0">
+                        </Label>
+                        <DatePicker
+                            Style="{StaticResource DefaultDatePicker}"
+                         Name="tbDaysPassedFirstDate"
+                         ToolTip="Define the first date"
+                         HorizontalAlignment="Center"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         Width="110"
+                         Margin="3"
+                         FontWeight="Normal"
+                         SelectedDate="{Binding DaysPassedFirstDate, UpdateSourceTrigger=PropertyChanged, ConverterCulture=de-DE}">
+                        </DatePicker>
+
+                        <Label
+                        Style="{StaticResource OrdinaryLabel}"
+                        Content="End date:"
+                        ToolTip="Define end date"
+                        HorizontalAlignment="Left"
+                        Grid.Row="1"
+                        Grid.Column="0">
+                        </Label>
+                        <DatePicker
+                            Style="{StaticResource DefaultDatePicker}"
+                            Name="tbDaysPassedSecondDate"
+                            ToolTip="Define the end date"
+                            HorizontalAlignment="Center"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Width="110"
+                            Margin="3"
+                            FontWeight="Normal"
+                            SelectedDate="{Binding DaysPassedSecondDate, UpdateSourceTrigger=PropertyChanged, ConverterCulture=de-DE}">
+                        </DatePicker>
+
+                        <Label
+                        Style="{StaticResource OrdinaryLabel}"
+                        Content="Total days:"
+                        HorizontalAlignment="Left"
+                        Grid.Row="2"
+                        Grid.Column="0">
+                        </Label>
+                        <TextBox
+                        Style="{StaticResource IsReadOnlyTextBox}"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        HorizontalAlignment="Center"
+                        Width="108"
+                        Margin="3"
+                        Text="{Binding DaysPassedTotalDays, UpdateSourceTrigger=PropertyChanged,
+                        ConverterCulture=de-DE}">
+                        </TextBox>
+
+                        <Button
+                        Style="{StaticResource OrdinaryConverterButton}"
+                        Content="Calculate"
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Width="110"
+                        Command="{Binding CalculateDateDifferenceCommand}">
+                        </Button>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+
+            <!-- Grid third row -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Fuel economy GroupBox-->
+                <GroupBox
+                Style="{StaticResource UsualGroupBox}"
+            Header="Fuel Economy" Grid.Row="0" Grid.Column="0" ToolTip="Formula to calculate fuel costs:&#x0a;
+                (liters fuel consumed per 100km * (Kilometers driven / 100)) * fuel peice per liter.&#x0a;
+                For example: (7 liters fuel per 100km * (650 Kilometers driven / 100)) * 1,41€ per liter unleaded fuel = 64,16">
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                            <RowDefinition Height="28" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="130" />
+                            <ColumnDefinition Width="120" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                       Style="{StaticResource OrdinaryLabel}"
+                       Content="Liters used:"
+                       ToolTip="How many liters fuel did your car consume?"
+                       HorizontalAlignment="Left"
+                       Grid.Row="0"
+                       Grid.Column="0">
+                        </Label>
+                        <TextBox
+                         Style="{StaticResource OrdinaryTextBoxCalculators}"
+                         Name="LitersUsedTextBox"
+                         ToolTip="How many liters fuel did your car consume?"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         Text="{Binding LitersUsed, UpdateSourceTrigger=Default,
+                         StringFormat=N1, ConverterCulture=de-DE}"
+                        MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                        KeyDown="UpdatePropertyOnEnter">
+                        </TextBox>
+
+                        <Label
+                        Style="{StaticResource OrdinaryLabel}"
+                        Content="Distance Driven in km:"
+                        ToolTip="How many Kilometer did you travel?"
+                        HorizontalAlignment="Left"
+                        Grid.Row="1"
+                        Grid.Column="0">
+                        </Label>
+                        <TextBox
+                        Style="{StaticResource OrdinaryTextBoxCalculators}"
+                        Name="DistanceDrivenTextBoxFuelEconomy"
+                        ToolTip="How many Kilometer did you travel?"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Text="{Binding DistanceDrivenFuelEconomy, UpdateSourceTrigger=Default,
+                        StringFormat=N0, ConverterCulture=de-DE}"
+                        MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
+                        KeyDown="UpdatePropertyOnEnter">
+                        </TextBox>
+
+                        <Label
+                        Content=" "
+                        Grid.Row="2"
+                        Grid.Column="0">
+                        </Label>
+
+                        <Label
+                        Style="{StaticResource OrdinaryLabel}"
+                        Content="Liters per 100km:"
+                        ToolTip="Avarage liters per 100km"
+                        HorizontalAlignment="Left"
+                        Grid.Row="3"
+                        Grid.Column="0">
+                        </Label>
+                        <TextBox
+                        Style="{StaticResource IsReadOnlyTextBox}"
+                        ToolTip="Avarage liters per 100km"
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Text="{Binding ResultLitersPer100km, UpdateSourceTrigger=PropertyChanged,
+                        StringFormat=N1, ConverterCulture=de-DE}">
+                        </TextBox>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </StackPanel>
+    </Border>
+</Page>

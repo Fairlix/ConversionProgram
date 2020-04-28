@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ConversionProgram" xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
+
+    <!-- Setting the ToolBar style globally -->
+    <Style x:Key="TopToolBar" TargetType="{x:Type ToolBar}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontWeight" Value="DemiBold" />
+        <Setter Property="ToolBarTray.IsLocked" Value="True" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{StaticResource SlightlyPurpleBrush}" />
+        <Setter Property="Margin" Value="-3,-3,-1,0" />
+    </Style>
+</ResourceDictionary>
