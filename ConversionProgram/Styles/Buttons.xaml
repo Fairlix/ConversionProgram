@@ -59,27 +59,24 @@
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="Red" />
-                <Setter Property="Foreground" Value="{StaticResource GroupboxBackgroundLightGrayBrush}" />
+                <Setter Property="Foreground" Value="{StaticResource LightGrayBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>
 
     <!-- Top ToolBar Button Style-->
     <Style x:Key="TopToolBarButton" TargetType="{x:Type Button}">
-        <Setter Property="Padding" Value="10 3 10 3 " />
-        <Setter Property="Margin" Value="2 3 2 2" />
-        <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="FontSize" Value="12" />
+        <Setter Property="Height" Value="25" />
 
         <Setter Property="Template">
             <Setter.Value>
 
-                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                <ControlTemplate TargetType="{x:Type Button}">
                     <Border x:Name="border"
-                            CornerRadius="2"
                             Background="Transparent"
-                            Padding="3 0 3 1 "
-                            Margin="3 0 3 0">
+                            Padding="5 4 5 0 "
+                            Margin="1">
 
                         <TextBlock Foreground="White" Text="{TemplateBinding Content}" />
                     </Border>
@@ -106,55 +103,7 @@
         </Setter>
     </Style>
 
-    <!-- Ordinary button style -->
-    <Style x:Key="OrdinaryButton" TargetType="{x:Type Button}">
-        <Setter Property="FontSize" Value="12" />
-        <Setter Property="FontWeight" Value="DemiBold" />
-        <Setter Property="Margin" Value="3" />
-        <Setter Property="Background" Value="Transparent" />
-
-        <Setter Property="Template">
-            <Setter.Value>
-
-                <ControlTemplate TargetType="{x:Type Button}">
-
-                    <!-- Border of button -->
-                    <Border x:Name="border"
-                            BorderBrush="Black"
-                            BorderThickness="1"
-                            Background="{StaticResource DefaultGrayBrush}"
-                            Padding="1"
-                            Margin="3 0 3 0"
-                            SnapsToDevicePixels="True">
-                        <!-- Text in button -->
-                        <TextBlock Foreground="Black" Text="{TemplateBinding Content}" TextAlignment="Center" VerticalAlignment="Center" />
-                    </Border>
-
-                    <!-- Change background color upon mouse enter-->
-                    <ControlTemplate.Triggers>
-                        <EventTrigger RoutedEvent="MouseEnter">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <ColorAnimation To="#c8c8f4" Duration="0:0:0.1" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                        <!-- Change to the default background color upon mouse leave -->
-                        <EventTrigger RoutedEvent="MouseLeave">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <ColorAnimation To="{StaticResource DefaultGray}" Duration="0:0:0.1" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <!-- Ordinary button style 100 width-->
-    <Style x:Key="OrdinaryConverterButton" TargetType="{x:Type Button}">
+    <Style x:Key="DefaultButton" TargetType="{x:Type Button}">
         <Setter Property="FontSize" Value="12" />
         <Setter Property="FontWeight" Value="DemiBold" />
         <Setter Property="Margin" Value="3" />
@@ -170,7 +119,6 @@
                             BorderThickness="1"
                             Background="Transparent"
                             Padding="1"
-                            Width="100"
                             SnapsToDevicePixels="True">
                         <!-- Text in button -->
                         <TextBlock x:Name="TextInButton"  Foreground="White" Text="{TemplateBinding Content}" TextAlignment="Center" VerticalAlignment="Center" />
@@ -200,4 +148,499 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!--#region Buttons which background color changes upon MouseEnter and MouseLeave -->
+    <!-- Button which fades light green upon mouse over -->
+    <Style x:Key="ButtonLightGreenFade" TargetType="{x:Type Button}">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="DemiBold" />
+        <Setter Property="Margin" Value="3" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+
+                <ControlTemplate TargetType="{x:Type Button}">
+
+                    <!-- Border of button -->
+                    <Border x:Name="border"
+                            BorderBrush="WhiteSmoke"
+                            BorderThickness="1"
+                            Background="Transparent"
+                            Padding="1"
+                            Width="100"
+                            SnapsToDevicePixels="True">
+                        <!-- Text in button -->
+                        <TextBlock x:Name="TextInButton"  Foreground="White" Text="{TemplateBinding Content}" TextAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+
+                    <!-- Change background color upon mouse enter-->
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource LightGreen}" Duration="0:0:0.1" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
+                                    <ColorAnimation To="Black" Duration="0:0:0.1" Storyboard.TargetName="TextInButton" Storyboard.TargetProperty="Foreground.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <!-- Change to the default background color upon mouse leave -->
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="Transparent" Duration="0:0:0.1" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
+                                    <ColorAnimation To="White" Duration="0:0:0.1" Storyboard.TargetName="TextInButton" Storyboard.TargetProperty="Foreground.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Button which fades light orange upon mouse over -->
+    <Style x:Key="ButtonLightOrangeFade" TargetType="{x:Type Button}">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="DemiBold" />
+        <Setter Property="Margin" Value="3" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <!-- Border of button -->
+                    <Border x:Name="border"
+                            BorderBrush="WhiteSmoke"
+                            BorderThickness="1"
+                            Background="Transparent"
+                            Padding="1"
+                            Width="100"
+                            SnapsToDevicePixels="True">
+                        <!-- Text in button -->
+                        <TextBlock x:Name="TextInButton"  Foreground="White" Text="{TemplateBinding Content}" TextAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <!-- Change background color upon mouse enter-->
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource LightOrange}" Duration="0:0:0.1" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
+                                    <ColorAnimation To="Black" Duration="0:0:0.1" Storyboard.TargetName="TextInButton" Storyboard.TargetProperty="Foreground.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <!-- Change to the default background color upon mouse leave -->
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="Transparent" Duration="0:0:0.1" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
+                                    <ColorAnimation To="White" Duration="0:0:0.1" Storyboard.TargetName="TextInButton" Storyboard.TargetProperty="Foreground.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Button which fades light red upon mouse over -->
+    <Style x:Key="ButtonLightRedFade" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <!-- Border of button -->
+                    <Border x:Name="border"
+                            BorderBrush="WhiteSmoke"
+                            BorderThickness="1"
+                            Background="Transparent"
+                            Padding="1"
+                            Width="100"
+                            SnapsToDevicePixels="True">
+                        <!-- Text in button -->
+                        <TextBlock x:Name="TextInButton"  Foreground="White" Text="{TemplateBinding Content}" TextAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <!-- Change background color upon mouse enter-->
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource LightRed}" Duration="0:0:0.1" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
+                                    <ColorAnimation To="Black" Duration="0:0:0.1" Storyboard.TargetName="TextInButton" Storyboard.TargetProperty="Foreground.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <!-- Change to the default background color upon mouse leave -->
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="Transparent" Duration="0:0:0.1" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
+                                    <ColorAnimation To="White" Duration="0:0:0.1" Storyboard.TargetName="TextInButton" Storyboard.TargetProperty="Foreground.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Button which fades light blue upon mouse over -->
+    <Style x:Key="ButtonLightBlueFade" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <!-- Border of button -->
+                    <Border x:Name="border"
+                            BorderBrush="WhiteSmoke"
+                            BorderThickness="1"
+                            Background="Transparent"
+                            Padding="1"
+                            Width="100"
+                            SnapsToDevicePixels="True">
+                        <!-- Text in button -->
+                        <TextBlock x:Name="TextInButton"  Foreground="White" Text="{TemplateBinding Content}" TextAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <!-- Change background color upon mouse enter-->
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource LightBlue}" Duration="0:0:0.1" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
+                                    <ColorAnimation To="Black" Duration="0:0:0.1" Storyboard.TargetName="TextInButton" Storyboard.TargetProperty="Foreground.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <!-- Change to the default background color upon mouse leave -->
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="Transparent" Duration="0:0:0.1" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
+                                    <ColorAnimation To="White" Duration="0:0:0.1" Storyboard.TargetName="TextInButton" Storyboard.TargetProperty="Foreground.Color" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--#endregion-->
+
+    <!--#region Buttons with icons, button background color changes upon MouseOver and MouseLeave, also the icon color changes upon MouseOver and MouseLeave -->
+
+    <!-- Button which fades light green upon mouse over and has the play icon which also fades from white to black and back upon mouse over -->
+    <Style x:Key="StartButton" TargetType="{x:Type Button}">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="DemiBold" />
+        <Setter Property="Margin" Value="3" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+
+                <ControlTemplate TargetType="{x:Type Button}">
+
+                    <!-- Border of button -->
+                    <Border x:Name="border"
+                            BorderBrush="WhiteSmoke"
+                            BorderThickness="1"
+                            Background="Transparent"
+                            Padding="1"
+                            Width="100"
+                            SnapsToDevicePixels="True">
+
+                        <!-- Text in button -->
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/ButtonIcons/WhiteButtons/PlayButtonWhite.png"
+                                   HorizontalAlignment="Left"
+                                   Margin="20,4,5,4"
+                                   SnapsToDevicePixels="True"
+                                   RenderOptions.BitmapScalingMode="HighQuality"
+                                   Opacity="1"
+                                   x:Name="image" />
+                            <TextBlock x:Name="TextInButton" Foreground="White" Text="{TemplateBinding Content}" Margin="5,0,0,0"  HorizontalAlignment="Center" />
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Change background color upon mouse enter-->
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource LightGreen}" Duration="0:0:0.1" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
+                                    <ColorAnimation To="Black" Duration="0:0:0.1" Storyboard.TargetName="TextInButton" Storyboard.TargetProperty="Foreground.Color" />
+
+                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
+                                                                   Storyboard.TargetName="image"
+                                                                   Duration="0:0:0.1">
+                                        <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                            <DiscreteObjectKeyFrame.Value>
+                                                <BitmapImage UriSource="/Images/ButtonIcons/BlackButtons/PlayButtonBlack.png" />
+                                            </DiscreteObjectKeyFrame.Value>
+                                        </DiscreteObjectKeyFrame>
+                                    </ObjectAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <!-- Change to the default background color upon mouse leave -->
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="Transparent" Duration="0:0:0.1" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
+                                    <ColorAnimation To="White" Duration="0:0:0.1" Storyboard.TargetName="TextInButton" Storyboard.TargetProperty="Foreground.Color" />
+
+                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
+                                                                   Storyboard.TargetName="image"
+                                                                   Duration="0:0:0.1">
+                                        <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                            <DiscreteObjectKeyFrame.Value>
+                                                <BitmapImage UriSource="/Images/ButtonIcons/WhiteButtons/PlayButtonWhite.png" />
+                                            </DiscreteObjectKeyFrame.Value>
+                                        </DiscreteObjectKeyFrame>
+                                    </ObjectAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Button which fades light orange upon mouse over and has the pause icon which also fades from white to black and back upon mouse over -->
+    <Style x:Key="PauseButton" TargetType="{x:Type Button}">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="DemiBold" />
+        <Setter Property="Margin" Value="3" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+
+                <ControlTemplate TargetType="{x:Type Button}">
+
+                    <!-- Border of button -->
+                    <Border x:Name="border"
+                            BorderBrush="WhiteSmoke"
+                            BorderThickness="1"
+                            Background="Transparent"
+                            Padding="1"
+                            Width="100"
+                            SnapsToDevicePixels="True">
+
+                        <!-- Text in button -->
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/ButtonIcons/WhiteButtons/PauseButtonWhite.png"
+                                   HorizontalAlignment="Left"
+                                   Margin="20,4,5,4"
+                                   SnapsToDevicePixels="True"
+                                   RenderOptions.BitmapScalingMode="HighQuality"
+                                   Opacity="1"
+                                   x:Name="image" />
+                            <TextBlock x:Name="TextInButton" Foreground="White" Text="{TemplateBinding Content}" Margin="5,0,0,0"  HorizontalAlignment="Center" />
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Change background color upon mouse enter-->
+                    <ControlTemplate.Triggers>
+
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource LightOrange}" Duration="0:0:0.1" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
+                                    <ColorAnimation To="Black" Duration="0:0:0.1" Storyboard.TargetName="TextInButton" Storyboard.TargetProperty="Foreground.Color" />
+
+                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
+                                                                   Storyboard.TargetName="image"
+                                                                   Duration="0:0:0.1">
+                                        <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                            <DiscreteObjectKeyFrame.Value>
+                                                <BitmapImage UriSource="/Images/ButtonIcons/BlackButtons/PauseButtonBlack.png" />
+                                            </DiscreteObjectKeyFrame.Value>
+                                        </DiscreteObjectKeyFrame>
+                                    </ObjectAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <!-- Change to the default background color upon mouse leave -->
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="Transparent" Duration="0:0:0.1" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
+                                    <ColorAnimation To="White" Duration="0:0:0.1" Storyboard.TargetName="TextInButton" Storyboard.TargetProperty="Foreground.Color" />
+
+                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
+                                                                   Storyboard.TargetName="image"
+                                                                   Duration="0:0:0.1">
+                                        <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                            <DiscreteObjectKeyFrame.Value>
+                                                <BitmapImage UriSource="/Images/ButtonIcons/WhiteButtons/PauseButtonWhite.png" />
+                                            </DiscreteObjectKeyFrame.Value>
+                                        </DiscreteObjectKeyFrame>
+                                    </ObjectAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Button which fades light red upon mouse over and has the stop icon which also fades from white to black and back upon mouse over -->
+    <Style x:Key="StopButton" TargetType="{x:Type Button}">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="DemiBold" />
+        <Setter Property="Margin" Value="3" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+
+                <ControlTemplate TargetType="{x:Type Button}">
+
+                    <!-- Border of button -->
+                    <Border x:Name="border"
+                            BorderBrush="WhiteSmoke"
+                            BorderThickness="1"
+                            Background="Transparent"
+                            Padding="1"
+                            Width="100"
+                            SnapsToDevicePixels="True">
+
+                        <!-- Text in button -->
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/ButtonIcons/WhiteButtons/StopButtonWhite.png"
+                                   HorizontalAlignment="Left"
+                                   Margin="20,4,5,4"
+                                   SnapsToDevicePixels="True"
+                                   RenderOptions.BitmapScalingMode="HighQuality"
+                                   Opacity="1"
+                                   x:Name="image" />
+                            <TextBlock x:Name="TextInButton" Foreground="White" Text="{TemplateBinding Content}" Margin="5,0,0,0"  HorizontalAlignment="Center" />
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Change background color upon mouse enter-->
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource LightRed}" Duration="0:0:0.1" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
+                                    <ColorAnimation To="Black" Duration="0:0:0.1" Storyboard.TargetName="TextInButton" Storyboard.TargetProperty="Foreground.Color" />
+
+                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
+                                                                   Storyboard.TargetName="image"
+                                                                   Duration="0:0:0.1">
+                                        <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                            <DiscreteObjectKeyFrame.Value>
+                                                <BitmapImage UriSource="/Images/ButtonIcons/BlackButtons/StopButtonBlack.png" />
+                                            </DiscreteObjectKeyFrame.Value>
+                                        </DiscreteObjectKeyFrame>
+                                    </ObjectAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <!-- Change to the default background color upon mouse leave -->
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="Transparent" Duration="0:0:0.1" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
+                                    <ColorAnimation To="White" Duration="0:0:0.1" Storyboard.TargetName="TextInButton" Storyboard.TargetProperty="Foreground.Color" />
+
+                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
+                                                                   Storyboard.TargetName="image"
+                                                                   Duration="0:0:0.1">
+                                        <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                            <DiscreteObjectKeyFrame.Value>
+                                                <BitmapImage UriSource="/Images/ButtonIcons/WhiteButtons/StopButtonWhite.png" />
+                                            </DiscreteObjectKeyFrame.Value>
+                                        </DiscreteObjectKeyFrame>
+                                    </ObjectAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Button which fades light blue upon mouse over and has the reload icon which also fades from white to black and back upon mouse over -->
+    <Style x:Key="ReloadButton" TargetType="{x:Type Button}">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="DemiBold" />
+        <Setter Property="Margin" Value="3" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+
+                <ControlTemplate TargetType="{x:Type Button}">
+
+                    <!-- Border of button -->
+                    <Border x:Name="border"
+                            BorderBrush="WhiteSmoke"
+                            BorderThickness="1"
+                            Background="Transparent"
+                            Padding="1"
+                            Width="100"
+                            SnapsToDevicePixels="True">
+
+                        <!-- Text in button -->
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Images/ButtonIcons/WhiteButtons/ReloadButtonWhite.png"
+                                   HorizontalAlignment="Left"
+                                   Margin="20,4,5,4"
+                                   SnapsToDevicePixels="True"
+                                   RenderOptions.BitmapScalingMode="HighQuality"
+                                   Opacity="1"
+                                   x:Name="image" />
+                            <TextBlock x:Name="TextInButton" Foreground="White" Text="{TemplateBinding Content}" Margin="5,0,0,0"  HorizontalAlignment="Center" />
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Change background color upon mouse enter-->
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="{StaticResource LightBlue}" Duration="0:0:0.1" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
+                                    <ColorAnimation To="Black" Duration="0:0:0.1" Storyboard.TargetName="TextInButton" Storyboard.TargetProperty="Foreground.Color" />
+
+                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
+                                                                   Storyboard.TargetName="image"
+                                                                   Duration="0:0:0.1">
+                                        <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                            <DiscreteObjectKeyFrame.Value>
+                                                <BitmapImage UriSource="/Images/ButtonIcons/BlackButtons/ReloadButtonBlack.png" />
+                                            </DiscreteObjectKeyFrame.Value>
+                                        </DiscreteObjectKeyFrame>
+                                    </ObjectAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <!-- Change to the default background color upon mouse leave -->
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation To="Transparent" Duration="0:0:0.1" Storyboard.TargetName="border" Storyboard.TargetProperty="Background.Color" />
+                                    <ColorAnimation To="White" Duration="0:0:0.1" Storyboard.TargetName="TextInButton" Storyboard.TargetProperty="Foreground.Color" />
+
+                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
+                                                                   Storyboard.TargetName="image"
+                                                                   Duration="0:0:0.1">
+                                        <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                            <DiscreteObjectKeyFrame.Value>
+                                                <BitmapImage UriSource="/Images/ButtonIcons/WhiteButtons/ReloadButtonWhite.png" />
+                                            </DiscreteObjectKeyFrame.Value>
+                                        </DiscreteObjectKeyFrame>
+                                    </ObjectAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--#endregion-->
 </ResourceDictionary>

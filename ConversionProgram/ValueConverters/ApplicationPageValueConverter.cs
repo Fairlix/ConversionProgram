@@ -1,27 +1,43 @@
-﻿using ConversionProgram.Model;
-using ConversionProgram.Pages;
+﻿using ConversionProgram.Pages;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConversionProgram
 {
     public class ApplicationPageValueConverter : BaseValueConverter<ApplicationPageValueConverter>
     {
+        /// <summary>
+        /// Converts the page and return the according page
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="targetType"></param>
+        /// <param name="parameter"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             // Find the appropiate page
             switch ((ApplicationPage)value)
             {
+                // Return Converterpage
                 case ApplicationPage.Converter:
                     return new ConverterPage();
 
+                // Return Calculatorpage
+                case ApplicationPage.Calculator:
+                    return new CalculatorPage();
+
+                // Return Stopwatchtimerpage
+                case ApplicationPage.StopwatchTimers:
+                    return new StopwatchTimerPage();
+
+                // Return Aboutpage
+                case ApplicationPage.About:
+                    return new AboutPage();
+
                 default:
-                    Debugger12.Break();
+                    Debugger.Break();
                     return null;
             }
         }

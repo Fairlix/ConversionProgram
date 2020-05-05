@@ -7,13 +7,28 @@
     <ProjectGuid>{EF6828B9-3726-42AA-813D-0E2FDA148E7E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>ConversionProgram</RootNamespace>
-    <AssemblyName>ConversionProgram</AssemblyName>
+    <AssemblyName>ConverCalclulator</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +48,16 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ConvercalculatorLogoPNG.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationFramework.Aero2" />
@@ -60,6 +85,9 @@
     <Compile Include="Animation\PageAnimations.cs" />
     <Compile Include="Animation\StoryboardHelpers.cs" />
     <Compile Include="Model\ApplicationPage.cs" />
+    <Compile Include="Pages\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\CalculatorPage.xaml.cs">
       <DependentUpon>CalculatorPage.xaml</DependentUpon>
@@ -67,9 +95,13 @@
     <Compile Include="Pages\ConverterPage.xaml.cs">
       <DependentUpon>ConverterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\StopwatchTimerPage.xaml.cs">
+      <DependentUpon>StopwatchTimerPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ValueConverters\ApplicationPageValueConverter.cs" />
     <Compile Include="ValueConverters\BaseValueConverter.cs" />
     <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="ViewModel\StopwatchTimersVM.cs" />
     <Compile Include="ViewModel\UnitConvertersVM.cs" />
     <Compile Include="Model\ModelBase.cs" />
     <Compile Include="Model\Unit.cs" />
@@ -78,11 +110,19 @@
     <Compile Include="ViewModel\Base\RelayCommand.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\WindowResizer.cs" />
+    <Page Include="Pages\AboutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\CalculatorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\ConverterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\StopwatchTimerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -111,6 +151,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\Labels.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ListBoxes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\MenuItems.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\MyScrollViewers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -163,6 +215,41 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Logo\ConvercalculatorLogoPNG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Unused\ColorizedButtons\PlayButton.png" />
+    <Resource Include="Images\Unused\ColorizedButtons\StopButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Unused\ColorizedButtons\PauseButton.png" />
+    <Resource Include="Images\Unused\ColorizedButtons\ReloadButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonIcons\WhiteButtons\PauseButtonWhite.png" />
+    <Resource Include="Images\ButtonIcons\WhiteButtons\PlaybuttonWhite.png" />
+    <Resource Include="Images\ButtonIcons\WhiteButtons\ReloadButtonWhite.png" />
+    <Resource Include="Images\ButtonIcons\WhiteButtons\StopButtonWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ButtonIcons\BlackButtons\PauseButtonBlack.png" />
+    <Resource Include="Images\ButtonIcons\BlackButtons\PlaybuttonBlack.png" />
+    <Resource Include="Images\ButtonIcons\BlackButtons\ReloadButtonBlack.png" />
+    <Resource Include="Images\ButtonIcons\BlackButtons\StopButtonBlack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ConvercalculatorLogoPNG.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

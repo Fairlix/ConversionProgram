@@ -28,8 +28,9 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
+                    <!-- Textbox to enter first value to convert from -->
                     <TextBox
-                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    Style="{StaticResource DefaultTextBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="0"
@@ -37,25 +38,30 @@
                     MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
                     KeyDown="UpdatePropertyOnEnter" />
 
+                    <!-- Combobox to select value / unit to convert from -->
                     <ComboBox
                     Style="{StaticResource DefaultComboBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="1"
+                    Width="125"
                     ItemsSource="{Binding DistanceUnitList}"
                     SelectedItem="{Binding SelectedDistanceUnit1}"
                     DisplayMemberPath="UnitNameAndAcronym" />
 
+                    <!-- Button to swap both units -->
                     <Button
-                    Style="{StaticResource OrdinaryConverterButton}"
+                    Style="{StaticResource DefaultButton}"
                     Content="Swap Units"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="2"
+                        Width="80"
                     Command="{Binding SwapDistanceUnitCommand}" />
 
+                    <!-- Textbox which contains the value which it got converted from -->
                     <TextBox
-                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    Style="{StaticResource DefaultTextBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="3"
@@ -63,11 +69,13 @@
                     MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
                     KeyDown="UpdatePropertyOnEnter" />
 
+                    <!-- Combobox to select value / unit to convert to -->
                     <ComboBox
                     Style="{StaticResource DefaultComboBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="4"
+                        Width="125"
                     ItemsSource="{Binding DistanceUnitList}"
                     SelectedItem="{Binding SelectedDistanceUnit2}"
                     DisplayMemberPath="UnitNameAndAcronym" />
@@ -91,8 +99,9 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
+                    <!-- Textbox to enter first value to convert from -->
                     <TextBox
-                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    Style="{StaticResource DefaultTextBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="0"
@@ -100,25 +109,30 @@
                     MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
                     KeyDown="UpdatePropertyOnEnter" />
 
+                    <!-- Combobox to select value / unit to convert from -->
                     <ComboBox
                     Style="{StaticResource DefaultComboBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="1"
+                        Width="125"
                     ItemsSource="{Binding TemperatureUnitList}"
                     SelectedItem="{Binding SelectedTemperatureUnit1}"
                     DisplayMemberPath="UnitNameAndAcronym" />
 
+                    <!-- Button to swap both units -->
                     <Button
-                    Style="{StaticResource OrdinaryConverterButton}"
+                    Style="{StaticResource DefaultButton}"
                     Content="Swap Units"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="2"
+                        Width="80"
                     Command="{Binding SwapTemperatureUnitCommand}" />
 
+                    <!-- Textbox which contains the value which it got converted from -->
                     <TextBox
-                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    Style="{StaticResource DefaultTextBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="3"
@@ -126,11 +140,13 @@
                     MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
                     KeyDown="UpdatePropertyOnEnter" />
 
+                    <!-- Combobox to select value / unit to convert to -->
                     <ComboBox
                     Style="{StaticResource DefaultComboBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="4"
+                        Width="125"
                     ItemsSource="{Binding TemperatureUnitList}"
                     SelectedItem="{Binding SelectedTemperatureUnit2}"
                     DisplayMemberPath="UnitNameAndAcronym" />
@@ -154,8 +170,9 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
+                    <!-- Textbox to enter first value to convert from -->
                     <TextBox
-                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    Style="{StaticResource DefaultTextBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="0"
@@ -163,25 +180,30 @@
                     MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
                     KeyDown="UpdatePropertyOnEnter" />
 
+                    <!-- Combobox to select value / unit to convert from -->
                     <ComboBox
                     Style="{StaticResource DefaultComboBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="1"
+                        Width="125"
                     ItemsSource="{Binding VelocityUnitList}"
                     SelectedItem="{Binding SelectedVelocityUnit1}"
                     DisplayMemberPath="UnitNameAndAcronym" />
 
+                    <!-- Button to swap both units -->
                     <Button
-                    Style="{StaticResource OrdinaryConverterButton}"
+                    Style="{StaticResource DefaultButton}"
                     Content="Swap Units"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="2"
+                        Width="80"
                     Command="{Binding SwapVelocityUnitCommand}" />
 
+                    <!-- Textbox which contains the value which it got converted from -->
                     <TextBox
-                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    Style="{StaticResource DefaultTextBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="3"
@@ -189,11 +211,13 @@
                     MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
                     KeyDown="UpdatePropertyOnEnter" />
 
+                    <!-- Combobox to select value / unit to convert to -->
                     <ComboBox
                     Style="{StaticResource DefaultComboBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="4"
+                        Width="125"
                     ItemsSource="{Binding VelocityUnitList}"
                     SelectedItem="{Binding SelectedVelocityUnit2}"
                     DisplayMemberPath="UnitNameAndAcronym" />
@@ -217,8 +241,9 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
+                    <!-- Textbox to enter first value to convert from -->
                     <TextBox
-                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    Style="{StaticResource DefaultTextBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="0"
@@ -226,25 +251,30 @@
                     MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
                     KeyDown="UpdatePropertyOnEnter" />
 
+                    <!-- Combobox to select value / unit to convert from -->
                     <ComboBox
                     Style="{StaticResource DefaultComboBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="1"
+                        Width="125"
                     ItemsSource="{Binding FrequencyUnitList}"
                     SelectedItem="{Binding SelectedFrequencyUnit1}"
                     DisplayMemberPath="UnitNameAndAcronym" />
 
+                    <!-- Button to swap both units -->
                     <Button
-                    Style="{StaticResource OrdinaryConverterButton}"
+                    Style="{StaticResource DefaultButton}"
                     Content="Swap Units"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="2"
+                        Width="80"
                     Command="{Binding SwapFrequencyUnitCommand}" />
 
+                    <!-- Textbox which contains the value which it got converted from -->
                     <TextBox
-                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    Style="{StaticResource DefaultTextBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="3"
@@ -252,11 +282,13 @@
                     MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
                     KeyDown="UpdatePropertyOnEnter" />
 
+                    <!-- Combobox to select value / unit to convert to -->
                     <ComboBox
                     Style="{StaticResource DefaultComboBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="4"
+                        Width="125"
                     ItemsSource="{Binding FrequencyUnitList}"
                     SelectedItem="{Binding SelectedFrequencyUnit2}"
                     DisplayMemberPath="UnitNameAndAcronym" />
@@ -280,8 +312,9 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
+                    <!-- Textbox to enter first value to convert from -->
                     <TextBox
-                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    Style="{StaticResource DefaultTextBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="0"
@@ -289,25 +322,30 @@
                     MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
                     KeyDown="UpdatePropertyOnEnter" />
 
+                    <!-- Combobox to select value / unit to convert from -->
                     <ComboBox
                     Style="{StaticResource DefaultComboBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="1"
+                        Width="125"
                     ItemsSource="{Binding MassUnitList}"
                     SelectedItem="{Binding SelectedMassUnit1}"
                     DisplayMemberPath="UnitNameAndAcronym" />
 
+                    <!-- Button to swap both units -->
                     <Button
-                    Style="{StaticResource OrdinaryConverterButton}"
+                    Style="{StaticResource DefaultButton}"
                     Content="Swap Units"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="2"
+                        Width="80"
                     Command="{Binding SwapMassUnitCommand}" />
 
+                    <!-- Textbox which contains the value which it got converted from -->
                     <TextBox
-                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    Style="{StaticResource DefaultTextBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="3"
@@ -315,11 +353,13 @@
                     MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
                     KeyDown="UpdatePropertyOnEnter" />
 
+                    <!-- Combobox to select value / unit to convert to -->
                     <ComboBox
                     Style="{StaticResource DefaultComboBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="4"
+                        Width="125"
                     ItemsSource="{Binding MassUnitList}"
                     SelectedItem="{Binding SelectedMassUnit2}"
                     DisplayMemberPath="UnitNameAndAcronym" />
@@ -343,8 +383,9 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
+                    <!-- Textbox to enter first value to convert from -->
                     <TextBox
-                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    Style="{StaticResource DefaultTextBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="0"
@@ -352,25 +393,30 @@
                     MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
                     KeyDown="UpdatePropertyOnEnter" />
 
+                    <!-- Combobox to select value / unit to convert from -->
                     <ComboBox
                     Style="{StaticResource DefaultComboBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="1"
+                        Width="125"
                     ItemsSource="{Binding AreaUnitList}"
                     SelectedItem="{Binding SelectedAreaUnit1}"
                     DisplayMemberPath="UnitNameAndAcronym" />
 
+                    <!-- Button to swap both units -->
                     <Button
-                    Style="{StaticResource OrdinaryConverterButton}"
+                    Style="{StaticResource DefaultButton}"
                     Content="Swap Units"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="2"
+                        Width="80"
                     Command="{Binding SwapAreaUnitCommand}" />
 
+                    <!-- Textbox which contains the value which it got converted from -->
                     <TextBox
-                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    Style="{StaticResource DefaultTextBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="3"
@@ -378,11 +424,13 @@
                     MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
                     KeyDown="UpdatePropertyOnEnter" />
 
+                    <!-- Combobox to select value / unit to convert to -->
                     <ComboBox
                     Style="{StaticResource DefaultComboBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="4"
+                        Width="125"
                     ItemsSource="{Binding AreaUnitList}"
                     SelectedItem="{Binding SelectedAreaUnit2}"
                     DisplayMemberPath="UnitNameAndAcronym" />
@@ -406,8 +454,9 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
+                    <!-- Textbox to enter first value to convert from -->
                     <TextBox
-                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    Style="{StaticResource DefaultTextBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="0"
@@ -415,25 +464,30 @@
                     MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
                     KeyDown="UpdatePropertyOnEnter" />
 
+                    <!-- Combobox to select value / unit to convert from -->
                     <ComboBox
                     Style="{StaticResource DefaultComboBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="1"
+                        Width="125"
                     ItemsSource="{Binding TimeUnitList}"
                     SelectedItem="{Binding SelectedTimeUnit1}"
                     DisplayMemberPath="UnitNameAndAcronym" />
 
+                    <!-- Button to swap both units -->
                     <Button
-                    Style="{StaticResource OrdinaryConverterButton}"
+                    Style="{StaticResource DefaultButton}"
                     Content="Swap Units"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="2"
+                        Width="80"
                     Command="{Binding SwapTimeUnitCommand}" />
 
+                    <!-- Textbox which contains the value which it got converted from -->
                     <TextBox
-                    Style="{StaticResource OrdinaryTextBoxConverters}"
+                    Style="{StaticResource DefaultTextBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="3"
@@ -441,11 +495,13 @@
                     MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
                     KeyDown="UpdatePropertyOnEnter" />
 
+                    <!-- Combobox to select value / unit to convert to -->
                     <ComboBox
                     Style="{StaticResource DefaultComboBox}"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="4"
+                        Width="125"
                     ItemsSource="{Binding TimeUnitList}"
                     SelectedItem="{Binding SelectedTimeUnit2}"
                     DisplayMemberPath="UnitNameAndAcronym" />

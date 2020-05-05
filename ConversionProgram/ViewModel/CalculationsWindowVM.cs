@@ -1,11 +1,6 @@
 ﻿using ConversionProgram.Model;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 
 namespace ConversionProgram.ViewModel
@@ -58,6 +53,10 @@ namespace ConversionProgram.ViewModel
         private int _minimalRandomNumber;
         private int _maximalRandomNumber;
         private string _randomNumberResult = "0";
+
+        /// <summary>
+        /// Command to invoke GenerateRandomNumber method
+        /// </summary>
         public ICommand GenerateRandomNumberCommand { get; set; }
 
         #endregion Random number generator
@@ -515,7 +514,7 @@ namespace ConversionProgram.ViewModel
             _temporaryVelocityKineticEnergy = VelocityKineticEnergy;
 
             // Basic formula to calculate energy in joules from grams and m/s
-            //ResultKineticEnergy = (0.5 * MassKineticEnergy) * (VelocityKineticEnergy * VelocityKineticEnergy);
+            // ResultKineticEnergy = (0.5 * MassKineticEnergy) * (VelocityKineticEnergy * VelocityKineticEnergy);
 
             if (MassKineticEnergy != 0 && VelocityKineticEnergy != 0 && SelectedVelocityUnit != null && SelectedMassUnit != null)
             {

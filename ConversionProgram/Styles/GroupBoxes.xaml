@@ -11,7 +11,6 @@
         <Setter Property="Foreground" Value="White" />
         <Setter Property="FontWeight" Value="DemiBold" />
         <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="BorderBrush" Value="{StaticResource ToolBarDarkGrayBrush}" />
 
         <Setter Property="Template">
             <Setter.Value>

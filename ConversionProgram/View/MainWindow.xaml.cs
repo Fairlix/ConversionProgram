@@ -1,21 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Interop;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using ConversionProgram.Pages;
+﻿using ConversionProgram.Pages;
 using ConversionProgram.ViewModel;
+using System;
+using System.Runtime.InteropServices;
+using System.Windows;
+using System.Windows.Interop;
 
 namespace ConversionProgram
 {
@@ -98,16 +86,28 @@ namespace ConversionProgram
 
         #endregion Blurry background
 
-        private void btnCalculators_Click(object sender, RoutedEventArgs e)
-        {
-            CalculatorPage calculatorPage = new CalculatorPage();
-            MainFrame.Navigate(calculatorPage);
-        }
+        //private void btnCalculators_Click(object sender, RoutedEventArgs e)
+        //{
+        //    // CalculatorPage calculatorPage = new CalculatorPage();
+        //    // MainFrame.Navigate(calculatorPage);
+        //}
 
-        private void btnConverters_Click(object sender, RoutedEventArgs e)
-        {
-            ConverterPage converterPage = new ConverterPage();
-            MainFrame.Navigate(converterPage);
-        }
+        //private void btnConverters_Click(object sender, RoutedEventArgs e)
+        //{
+        //    ConverterPage converterPage = new ConverterPage();
+        //    MainFrame.Navigate(converterPage);
+        //}
+
+        //private void btnStopwatchTimers_Click(object sender, RoutedEventArgs e)
+        //{
+        //    StopwatchTimerPage stopwatchTimerPage = new StopwatchTimerPage();
+        //    MainFrame.Navigate(stopwatchTimerPage);
+        //}
+
+        //private void btnAbout_Click(object sender, RoutedEventArgs e)
+        //{
+        //    AboutPage aboutPage = new AboutPage();
+        //    MainFrame.Navigate(aboutPage);
+        //}
     }
 }

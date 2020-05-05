@@ -50,8 +50,9 @@
                             Grid.Row="0"
                             Grid.Column="0">
                         </Label>
+                        <!-- Textbox to enter FuelPrice in order to calculate fuelcost -->
                         <TextBox
-                            Style="{StaticResource OrdinaryTextBoxCalculators}"
+                            Style="{StaticResource DefaultTinyTextBox}"
                             Name="FuelPriceTextBox"
                             ToolTip="How much does one liter of fuel cost you?"
                             Grid.Row="0"
@@ -70,8 +71,9 @@
                             Grid.Row="1"
                             Grid.Column="0">
                         </Label>
+                        <!-- Textbox to enter Distance Driven in order to calculate fuelcost -->
                         <TextBox
-                            Style="{StaticResource OrdinaryTextBoxCalculators}"
+                            Style="{StaticResource DefaultTinyTextBox}"
                             Name="DistanceDrivenTextBox"
                             ToolTip="How many Kilometer did you travel?"
                             Grid.Row="1"
@@ -90,8 +92,9 @@
                             Grid.Row="2"
                             Grid.Column="0">
                         </Label>
+                        <!-- Textbox to enter liters per 100km in order to calculate fuelcost -->
                         <TextBox
-                            Style="{StaticResource OrdinaryTextBoxCalculators}"
+                            Style="{StaticResource DefaultTinyTextBox}"
                             Name="LitersPer100kmTextBox"
                             ToolTip="How many liters does your vehicle consume per 100km driven?"
                             Grid.Row="2"
@@ -110,8 +113,9 @@
                             Grid.Row="3"
                             Grid.Column="0">
                         </Label>
+                        <!-- result - the total fuel cost -->
                         <TextBox
-                            Style="{StaticResource IsReadOnlyTextBox}"
+                            Style="{StaticResource DefaultIsReadOnlyTextBox}"
                             ToolTip="Total cost of your trip"
                             Grid.Row="3"
                             Grid.Column="1"
@@ -150,8 +154,9 @@
                             Grid.Row="0"
                             Grid.Column="0">
                         </Label>
+                        <!-- Watt consumption in order to calculate total energy cost -->
                         <TextBox
-                            Style="{StaticResource OrdinaryTextBoxCalculators}"
+                            Style="{StaticResource DefaultTinyTextBox}"
                             Name="WattConsumptionTextBox"
                             ToolTip="How many watt does your device consume?"
                             Grid.Row="0"
@@ -170,8 +175,9 @@
                             Grid.Row="1"
                             Grid.Column="0">
                         </Label>
+                        <!-- Utilization time in order to calculate total energy cost -->
                         <TextBox
-                            Style="{StaticResource OrdinaryTextBoxCalculators}"
+                            Style="{StaticResource DefaultTinyTextBox}"
                             Name="UtilizationTimeTextBox"
                             ToolTip="How many hours have you used your device?"
                             Grid.Row="1"
@@ -190,8 +196,9 @@
                             Grid.Row="2"
                             Grid.Column="0">
                         </Label>
+                        <!-- Energy cost in order to calculate total energy cost -->
                         <TextBox
-                            Style="{StaticResource OrdinaryTextBoxCalculators}"
+                            Style="{StaticResource DefaultTinyTextBox}"
                             Name="EnergyCostTextBox"
                             ToolTip="How much does one kilowatt hour cost you?"
                             Grid.Row="2"
@@ -210,8 +217,9 @@
                             Grid.Row="3"
                             Grid.Column="0">
                         </Label>
+                        <!-- Result of the energy consumption cost -->
                         <TextBox
-                            Style="{StaticResource IsReadOnlyTextBox}"
+                            Style="{StaticResource DefaultIsReadOnlyTextBox}"
                             ToolTip="Total energy consumption cost"
                             Grid.Row="3"
                             Grid.Column="1"
@@ -246,8 +254,9 @@
                             Grid.Row="0"
                             Grid.Column="0">
                         </Label>
+                        <!-- Body weight in order to calculate BMI -->
                         <TextBox
-                            Style="{StaticResource OrdinaryTextBoxCalculators}"
+                            Style="{StaticResource DefaultTinyTextBox}"
                             Name="tbBodyWeight"
                             ToolTip="How much do you weigh in kilograms?"
                             Grid.Row="0"
@@ -266,8 +275,9 @@
                             Grid.Row="1"
                             Grid.Column="0">
                         </Label>
+                        <!-- Body height in order to calculate BMI -->
                         <TextBox
-                            Style="{StaticResource OrdinaryTextBoxCalculators}"
+                            Style="{StaticResource DefaultTinyTextBox}"
                             Name="tbBodyHeight"
                             ToolTip="How tall are you in cm?"
                             Grid.Row="1"
@@ -286,8 +296,9 @@
                             Grid.Row="2"
                             Grid.Column="0">
                         </Label>
+                        <!-- Result BMI of given values above -->
                         <TextBox
-                            Style="{StaticResource IsReadOnlyTextBox}"
+                            Style="{StaticResource DefaultTinyTextBox}"
                             ToolTip="Your body mass index."
                             Grid.Row="2"
                             Grid.Column="1"
@@ -348,8 +359,9 @@
                         Grid.Row="0"
                         Grid.Column="0">
                         </Label>
+                        <!-- Mass of the objext to calculate kinetic energy -->
                         <TextBox
-                        Style="{StaticResource OrdinaryTextBoxCalculators}"
+                        Style="{StaticResource DefaultTinyTextBox}"
                         Name="MassTextBox"
                         ToolTip="How heavy is your object?"
                         Grid.Row="0"
@@ -361,6 +373,7 @@
                         MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
                         KeyDown="UpdatePropertyOnEnter">
                         </TextBox>
+                        <!-- Combobox to select the according unit -->
                         <ComboBox
                         Style="{StaticResource DefaultComboBox}"
                         Name="MassUnitComboBox"
@@ -381,8 +394,9 @@
                         Grid.Row="1"
                         Grid.Column="0">
                         </Label>
+                        <!-- Velocity of the objext to calculate kinetic energy -->
                         <TextBox
-                        Style="{StaticResource OrdinaryTextBoxCalculators}"
+                        Style="{StaticResource DefaultTinyTextBox}"
                         Name="VelocityTextBox"
                         ToolTip="How fast is your object travelling?"
                         Grid.Row="1"
@@ -394,6 +408,7 @@
                         MouseDoubleClick="EmptyTextBoxOn_MouseDoubleClick"
                         KeyDown="UpdatePropertyOnEnter">
                         </TextBox>
+                        <!-- Combobox to select the according unit -->
                         <ComboBox
                         Style="{StaticResource DefaultComboBox}"
                         Name="VelocityComboBox"
@@ -420,8 +435,9 @@
                         Grid.Row="3"
                         Grid.Column="0">
                         </Label>
+                        <!-- Result textbox to display calculated kinetic energy -->
                         <TextBox
-                        Style="{StaticResource IsReadOnlyTextBox}"
+                        Style="{StaticResource DefaultIsReadOnlyTextBox}"
                         Grid.Row="3"
                         Grid.Column="1"
                         Margin="-10 0 0 0"
@@ -456,8 +472,9 @@
                        Grid.Row="0"
                        Grid.Column="0">
                         </Label>
+                        <!-- Minimal value to generate a random number -->
                         <TextBox
-                        Style="{StaticResource OrdinaryTextBoxCalculators}"
+                        Style="{StaticResource DefaultTinyTextBox}"
                          Name="tbRandomNumberStartFrom"
                          ToolTip="Define start of the range of the random number"
                          Grid.Row="0"
@@ -477,8 +494,9 @@
                         Grid.Row="1"
                         Grid.Column="0">
                         </Label>
+                        <!-- Maximum value to generate a random number -->
                         <TextBox
-                        Style="{StaticResource OrdinaryTextBoxCalculators}"
+                        Style="{StaticResource DefaultTinyTextBox}"
                         Name="tbRandomNumberEndAt"
                         ToolTip="Define end of the range of the random number"
                         Grid.Row="1"
@@ -497,8 +515,9 @@
                         Grid.Row="2"
                         Grid.Column="0">
                         </Label>
+                        <!-- The random number -->
                         <TextBox
-                        Style="{StaticResource IsReadOnlyTextBox}"
+                        Style="{StaticResource DefaultIsReadOnlyTextBox}"
                         HorizontalAlignment="Center"
                         Grid.Row="2"
                         Grid.Column="1"
@@ -507,8 +526,9 @@
                         StringFormat=N0, ConverterCulture=de-DE}">
                         </TextBox>
 
+                        <!-- Button to generate the random number -->
                         <Button
-                        Style="{StaticResource OrdinaryConverterButton}"
+                        Style="{StaticResource DefaultButton}"
                         Grid.Column="1"
                         Grid.Row="3"
                         Width="110"
@@ -543,6 +563,7 @@
                        Grid.Row="0"
                        Grid.Column="0">
                         </Label>
+                        <!-- Select the start date to calculate the date difference -->
                         <DatePicker
                             Style="{StaticResource DefaultDatePicker}"
                          Name="tbDaysPassedFirstDate"
@@ -564,6 +585,7 @@
                         Grid.Row="1"
                         Grid.Column="0">
                         </Label>
+                        <!-- Select the end date to calculate the date difference -->
                         <DatePicker
                             Style="{StaticResource DefaultDatePicker}"
                             Name="tbDaysPassedSecondDate"
@@ -584,23 +606,26 @@
                         Grid.Row="2"
                         Grid.Column="0">
                         </Label>
+                        <!-- Total calculated day difference -->
                         <TextBox
-                        Style="{StaticResource IsReadOnlyTextBox}"
+                        Style="{StaticResource DefaultTinyTextBox}"
                         Grid.Row="2"
                         Grid.Column="1"
                         HorizontalAlignment="Center"
-                        Width="108"
-                        Margin="3"
+                        Width="107"
+                        Margin="-3,0,0,0"
                         Text="{Binding DaysPassedTotalDays, UpdateSourceTrigger=PropertyChanged,
                         ConverterCulture=de-DE}">
                         </TextBox>
 
+                        <!-- Button to calculate the date difference of given dates-->
                         <Button
-                        Style="{StaticResource OrdinaryConverterButton}"
+                        Style="{StaticResource DefaultButton}"
                         Content="Calculate"
                         Grid.Row="3"
                         Grid.Column="1"
-                        Width="110"
+                        Width="107"
+                        Margin="0,0,3,0"
                         Command="{Binding CalculateDateDifferenceCommand}">
                         </Button>
                     </Grid>
@@ -646,8 +671,9 @@
                        Grid.Row="0"
                        Grid.Column="0">
                         </Label>
+                        <!-- Total liters used to calculate fuel economy -->
                         <TextBox
-                         Style="{StaticResource OrdinaryTextBoxCalculators}"
+                         Style="{StaticResource DefaultTinyTextBox}"
                          Name="LitersUsedTextBox"
                          ToolTip="How many liters fuel did your car consume?"
                          Grid.Row="0"
@@ -666,8 +692,9 @@
                         Grid.Row="1"
                         Grid.Column="0">
                         </Label>
+                        <!-- Distance driven in km used to calculate fuel economy -->
                         <TextBox
-                        Style="{StaticResource OrdinaryTextBoxCalculators}"
+                        Style="{StaticResource DefaultTinyTextBox}"
                         Name="DistanceDrivenTextBoxFuelEconomy"
                         ToolTip="How many Kilometer did you travel?"
                         Grid.Row="1"
@@ -692,8 +719,9 @@
                         Grid.Row="3"
                         Grid.Column="0">
                         </Label>
+                        <!-- Total liters used to calculate fuel economy -->
                         <TextBox
-                        Style="{StaticResource IsReadOnlyTextBox}"
+                        Style="{StaticResource DefaultTinyTextBox}"
                         ToolTip="Avarage liters per 100km"
                         Grid.Row="3"
                         Grid.Column="1"

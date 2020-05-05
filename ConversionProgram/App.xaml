@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:ConversionProgram"
              StartupUri="View/MainWindow.xaml">
 
+    <!-- Order matters ! -->
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -16,6 +17,9 @@
                 <ResourceDictionary Source="Styles/TextBoxes.xaml" />
                 <ResourceDictionary Source="Styles/ComboBoxes.xaml" />
                 <ResourceDictionary Source="Styles/DatePickers.xaml" />
+                <ResourceDictionary Source="Styles/MyScrollViewers.xaml" />
+                <ResourceDictionary Source="Styles/ListBoxes.xaml" />
+                <ResourceDictionary Source="Styles/MenuItems.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

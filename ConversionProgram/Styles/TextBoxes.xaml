@@ -3,7 +3,7 @@
                     xmlns:local="clr-namespace:ConversionProgram">
 
     <!-- Style for the ordinary TextBox in Converters-->
-    <Style x:Key="OrdinaryTextBoxConverters" TargetType="{x:Type TextBox}">
+    <Style x:Key="DefaultTextBox" TargetType="{x:Type TextBox}">
         <Setter Property="FontWeight"  Value="Normal" />
         <Setter Property="Width" Value="125" />
         <Setter Property="Height" Value="20" />
@@ -34,14 +34,14 @@
     </Style>
 
     <!-- Style for the ordinary TextBox in Calulators-->
-    <Style x:Key="OrdinaryTextBoxCalculators" TargetType="{x:Type TextBox}" BasedOn="{StaticResource OrdinaryTextBoxConverters}">
+    <Style x:Key="DefaultTinyTextBox" TargetType="{x:Type TextBox}" BasedOn="{StaticResource DefaultTextBox}">
         <Setter Property="FontWeight"  Value="Normal" />
         <Setter Property="Width" Value="80" />
         <Setter Property="Height" Value="20" />
     </Style>
 
     <!-- Style for the IsReadOnly TextBox-->
-    <Style x:Key="IsReadOnlyTextBox" TargetType="{x:Type TextBox}">
+    <Style x:Key="DefaultIsReadOnlyTextBox" TargetType="{x:Type TextBox}">
         <Setter Property="FontWeight" Value="DemiBold" />
         <Setter Property="Width" Value="80" />
         <Setter Property="Height" Value="20" />

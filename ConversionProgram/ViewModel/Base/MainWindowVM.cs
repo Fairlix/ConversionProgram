@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ConversionProgram.Pages;
+using System;
+using System.Globalization;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
-using ConversionProgram.Model;
-using ConversionProgram.Pages;
 
 namespace ConversionProgram.ViewModel
 {
@@ -35,9 +29,23 @@ namespace ConversionProgram.ViewModel
         public int ResizeBorder { get; set; } = 6;
 
         /// <summary>
-        /// Start page upon loading the program
+        /// The current page that is being displayed
         /// </summary>
-        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Converter;
+        //public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Converter;
+
+        private ApplicationPage _currentPage;
+
+        /// <summary>
+        /// The current page that is being displayed
+        /// </summary>
+        public ApplicationPage CurrentPage
+        {
+            get { return _currentPage; }
+            set
+            {
+                Set(ref _currentPage, value);
+            }
+        }
 
         /// <summary>
         /// The height of the title bar / caption of the window
@@ -66,7 +74,30 @@ namespace ConversionProgram.ViewModel
         /// </summary>
         public ICommand MenuCommand { get; set; }
 
-        public ICommand OpenConverterCommand { get; set; }
+        /// <summary>
+        /// Command to always have the window on top
+        /// </summary>
+        public ICommand WindowAlwaysOnTopCommand { get; set; }
+
+        /// <summary>
+        /// Command to open the calculator page
+        /// </summary>
+        public ICommand OpenCalculatorPageCommand { get; set; }
+
+        /// <summary>
+        /// Command to open the converter page
+        /// </summary>
+        public ICommand OpenConverterPageCommand { get; set; }
+
+        /// <summary>
+        /// Command to open the stopwatch timer page
+        /// </summary>
+        public ICommand OpenStopwatchTimerPageCommand { get; set; }
+
+        /// <summary>
+        /// Command to open the about page
+        /// </summary>
+        public ICommand OpenAboutPageCommand { get; set; }
 
         #endregion Commands
 
@@ -82,6 +113,72 @@ namespace ConversionProgram.ViewModel
             MinimizeCommand = new RelayCommand(() => mWindow.WindowState = WindowState.Minimized);
             CloseCommand = new RelayCommand(() => mWindow.Close());
             MenuCommand = new RelayCommand(() => SystemCommands.ShowSystemMenu(mWindow, GetMousePosition()));
+            WindowAlwaysOnTopCommand = new RelayCommand(() => WindowAlwaysOnTop(window));
+            OpenCalculatorPageCommand = new RelayCommand(() => OpenCalculatorPage());
+            OpenConverterPageCommand = new RelayCommand(() => OpenConverterPage());
+            OpenStopwatchTimerPageCommand = new RelayCommand(() => OpenStopwatchTimerPage());
+            OpenAboutPageCommand = new RelayCommand(() => OpenAboutPage());
+        }
+
+        /// <summary>
+        /// Opens calculator page
+        /// </summary>
+        private void OpenCalculatorPage()
+        {
+            // if currentPage doesn't equal CalculatorPage, open Calculator page
+            if (CurrentPage != ApplicationPage.Calculator)
+            {
+                CurrentPage = ApplicationPage.Calculator;
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        /// <summary>
+        /// Opens converter page
+        /// </summary>
+        private void OpenConverterPage()
+        {
+            if (CurrentPage != ApplicationPage.Converter)
+            {
+                CurrentPage = ApplicationPage.Converter;
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        /// <summary>
+        /// Opens stopwatch timer page
+        /// </summary>
+        private void OpenStopwatchTimerPage()
+        {
+            if (CurrentPage != ApplicationPage.StopwatchTimers)
+            {
+                CurrentPage = ApplicationPage.StopwatchTimers;
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        /// <summary>
+        /// Opens about page
+        /// </summary>
+        private void OpenAboutPage()
+        {
+            if (CurrentPage != ApplicationPage.About)
+            {
+                CurrentPage = ApplicationPage.About;
+            }
+            else
+            {
+                return;
+            }
         }
 
         /// <summary>
@@ -95,6 +192,24 @@ namespace ConversionProgram.ViewModel
 
             // Add the window position so it's a "ToScreen"
             return new Point(position.X + mWindow.Left, position.Y + mWindow.Top);
+        }
+
+        /// <summary>
+        /// Method to keep window always on top when activated
+        /// </summary>
+        /// <param name="window"></param>
+        private void WindowAlwaysOnTop(Window window)
+        {
+            // Checks if window is already on top, if not, it keeps it as topmost window
+            if (window.Topmost != true)
+            {
+                window.Topmost = true;
+            }
+            // Checks if window is topmost, if true, set to default
+            else if (window.Topmost == true)
+            {
+                window.Topmost = false;
+            }
         }
     }
 }

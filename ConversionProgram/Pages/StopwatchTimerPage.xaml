@@ -1,0 +1,612 @@
+﻿<Page x:Class="ConversionProgram.Pages.StopwatchTimerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:ConversionProgram"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="StopwatchTimerPage">
+
+    <!-- Page content, setting the background -->
+    <Border Background="Transparent">
+        <StackPanel>
+            <!-- Grid first row -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Stopwatch #1 Groupbox -->
+                <GroupBox
+                    Style="{StaticResource UsualGroupBox}"
+                    Header="Stopwatch #1"
+                    Grid.Row="1" Grid.Column="0"
+                    Padding="10">
+
+                    <StackPanel>
+                        <!-- Label which displays the elapsed time -->
+                        <Label
+                            Style="{StaticResource OrdinaryLabel}"
+                            Width="150"
+                            Margin="0, 0, 0, 10"
+                            Content="{Binding FirstStopwatchElapsedTime, UpdateSourceTrigger=PropertyChanged, FallbackValue=00:00:00:00}">
+                        </Label>
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="28" />
+                                <RowDefinition Height="28" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Button to start the Stopwatch-->
+                            <Button
+                                Style="{StaticResource StartButton}"
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Content="Start"
+                                Command="{Binding StartFirstStopwatchCommand}">
+                            </Button>
+
+                            <!-- Button to stop the stopwatch -->
+                            <Button
+                                Style="{StaticResource StopButton}"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Content="Stop"
+                                Command="{Binding StopFirstStopwatchCommand}" />
+
+                            <!-- Button to puase the Stopwatch -->
+                            <Button
+                                Style="{StaticResource PauseButton}"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Content="Pause"
+                                Command="{Binding PauseFirstStopwatchCommand}" />
+
+                            <!-- Button to reset the Stopwatch -->
+                            <Button
+                                Style="{StaticResource ReloadButton}"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Content="Reset"
+                                Command="{Binding ResetFirstStopwatchCommand}" />
+                        </Grid>
+                    </StackPanel>
+                </GroupBox>
+
+                <!-- Stopwatch #2 Groupbox -->
+                <GroupBox
+                    Style="{StaticResource UsualGroupBox}"
+                    Header="Stopwatch #2"
+                    Grid.Row="1" Grid.Column="1"
+                    Padding="10">
+
+                    <StackPanel>
+                        <!-- Label which displays the elapsed time -->
+                        <Label
+                            Style="{StaticResource OrdinaryLabel}"
+                            Width="150"
+                            Margin="0, 0, 0, 10"
+                            Content="{Binding SecondStopwatchElapsedTime, UpdateSourceTrigger=PropertyChanged, FallbackValue=00:00:00:00}">
+                        </Label>
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="28" />
+                                <RowDefinition Height="28" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Button to start the Stopwatch-->
+                            <Button
+                                Style="{StaticResource StartButton}"
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Content="Start"
+                                Command="{Binding StartSecondStopwatchCommand}">
+                            </Button>
+
+                            <!-- Button to stop the stopwatch -->
+                            <Button
+                                Style="{StaticResource StopButton}"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Content="Stop"
+                                Command="{Binding StopSecondStopwatchCommand}" />
+
+                            <!-- Button to puase the Stopwatch -->
+                            <Button
+                                Style="{StaticResource PauseButton}"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Content="Pause"
+                                Command="{Binding PauseSecondStopwatchCommand}" />
+
+                            <!-- Button to reset the Stopwatch -->
+                            <Button
+                                Style="{StaticResource ReloadButton}"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Content="Reset"
+                                Command="{Binding ResetSecondStopwatchCommand}" />
+                        </Grid>
+                    </StackPanel>
+                </GroupBox>
+
+                <!-- Stopwatch #3 Groupbox -->
+                <GroupBox
+                    Style="{StaticResource UsualGroupBox}"
+                    Header="Stopwatch #3"
+                    Grid.Row="1" Grid.Column="2"
+                    Padding="10">
+
+                    <StackPanel>
+                        <!-- Label which displays the elapsed time -->
+                        <Label
+                            Style="{StaticResource OrdinaryLabel}"
+                            Width="150"
+                            Margin="0, 0, 0, 10"
+                            Content="{Binding ThirdStopwatchElapsedTime, UpdateSourceTrigger=PropertyChanged, FallbackValue=00:00:00:00}">
+                        </Label>
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="28" />
+                                <RowDefinition Height="28" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Button to start the Stopwatch-->
+                            <Button
+                                Style="{StaticResource StartButton}"
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Content="Start"
+                                Command="{Binding StartThirdStopwatchCommand}">
+                            </Button>
+
+                            <!-- Button to stop the stopwatch -->
+                            <Button
+                                Style="{StaticResource StopButton}"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Content="Stop"
+                                Command="{Binding StopThirdStopwatchCommand}" />
+
+                            <!-- Button to puase the Stopwatch -->
+                            <Button
+                                Style="{StaticResource PauseButton}"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Content="Pause"
+                                Command="{Binding PauseThirdStopwatchCommand}" />
+
+                            <!-- Button to reset the Stopwatch -->
+                            <Button
+                                Style="{StaticResource ReloadButton}"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Content="Reset"
+                                Command="{Binding ResetThirdStopwatchCommand}" />
+                        </Grid>
+                    </StackPanel>
+                </GroupBox>
+            </Grid>
+
+            <!-- Grid second row -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Previous recorded times Stopwatch #1 -->
+                <GroupBox
+                Style="{StaticResource UsualGroupBox}"
+                Header="Previous recorded times Stopwatch #1" Grid.Row="1" Grid.Column="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <!-- Listbox to display previous measured times -->
+                        <ListBox
+                                        Style="{StaticResource DefaultListBox}"
+                                        Width="100"
+                                        Height="100"
+                                        Grid.Row="3"
+                                        Grid.Column="0"
+                                        Margin="3"
+                                        ItemsSource="{Binding ElapsedTimeFirstStopwatchList}" Template="{DynamicResource ListBoxControlTemplate1}">
+                        </ListBox>
+
+                        <!-- Button to empty according list from viewbox -->
+                        <Button
+                                        Style="{StaticResource ButtonLightRedFade}"
+                                        Height="28"
+                                        Content="Empty list"
+                                        Grid.Row="3"
+                                        Grid.Column="1"
+                                        Command="{Binding EmptyFirstStopWatchListCommand}" />
+                    </Grid>
+                </GroupBox>
+
+                <!-- Previous recorded times Stopwatch #2 -->
+                <GroupBox
+                Style="{StaticResource UsualGroupBox}"
+                Header="Previous recorded times Stopwatch #2" Grid.Row="1" Grid.Column="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <!-- Listbox to display previous measured times -->
+                        <ListBox
+                                        Style="{StaticResource DefaultListBox}"
+                                        Width="100"
+                                        Height="100"
+                                        Grid.Row="3"
+                                        Grid.Column="0"
+                                        Margin="3"
+                                        ItemsSource="{Binding ElapsedTimeSecondStopwatchList}">
+                        </ListBox>
+
+                        <!-- Button to empty according list from viewbox -->
+                        <Button
+                                        Style="{StaticResource ButtonLightRedFade}"
+                                        Height="28"
+                                        Content="Empty list"
+                                        Grid.Row="3"
+                                        Grid.Column="1"
+                                        Command="{Binding EmptySecondStopWatchListCommand}" />
+                    </Grid>
+                </GroupBox>
+
+                <!-- Previous recorded times Stopwatch #3 -->
+                <GroupBox
+                Style="{StaticResource UsualGroupBox}"
+                Header="Previous recorded times Stopwatch #3" Grid.Row="1" Grid.Column="2">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <!-- Listbox to display previous measured times -->
+                        <ListBox
+                            Style="{StaticResource DefaultListBox}"
+                            Width="100"
+                            Height="100"
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            Margin="3"
+                                        ItemsSource="{Binding ElapsedTimeThirdStopwatchList}">
+                        </ListBox>
+
+                        <!-- Button to empty according list from viewbox -->
+                        <Button
+                            Style="{StaticResource ButtonLightRedFade}"
+                            Height="28"
+                            Content="Empty list"
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Command="{Binding EmptyThirdStopWatchListCommand}" />
+                    </Grid>
+                </GroupBox>
+            </Grid>
+
+            <Border BorderBrush="WhiteSmoke" BorderThickness="1" Height="1" Margin="2,10,0,2" />
+            <!-- Grid third row -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Timer #1 GroupBox-->
+                <GroupBox
+                    Style="{StaticResource UsualGroupBox}"
+                    Header="Timer #1"
+                    Grid.Row="0"
+                    Grid.Column="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="24" />
+                            <RowDefinition Height="24" />
+                            <RowDefinition Height="28" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Labels for the comboboxes below -->
+                        <Label
+                            Style="{StaticResource OrdinaryLabel}"
+                            Content="Hours"
+                            Grid.Row="0"
+                            Grid.Column="0">
+                        </Label>
+                        <Label
+                            Style="{StaticResource OrdinaryLabel}"
+                            Content="Minutes"
+                            Grid.Row="0"
+                            Grid.Column="1">
+                        </Label>
+                        <Label
+                            Style="{StaticResource OrdinaryLabel}"
+                            Content="Second"
+                            Grid.Row="0"
+                            Grid.Column="2">
+                        </Label>
+
+                        <!-- Comboboxes to select time for the timer -->
+                        <ComboBox
+                            Style="{StaticResource DefaultNoArrowComboBox}"
+                            ItemsSource="{Binding HoursList}"
+                            SelectedItem="{Binding SelectedHourFirstTimer}"
+                            Margin="3,0,3,0"
+                            Grid.Row="1"
+                            Grid.Column="0">
+                        </ComboBox>
+                        <ComboBox
+                            Style="{StaticResource DefaultNoArrowComboBox}"
+                            ItemsSource="{Binding MinutesList}"
+                            SelectedItem="{Binding SelectedMinuteFirstTimer}"
+                            Margin="3,0,3,0"
+                            Grid.Row="1"
+                            Grid.Column="1">
+                        </ComboBox>
+                        <ComboBox
+                            Style="{StaticResource DefaultNoArrowComboBox}"
+                            ItemsSource="{Binding SecondsList}"
+                            SelectedItem="{Binding SelectedSecondFirstTimer}"
+                            Margin="3,0,3,0"
+                            Grid.Row="1"
+                            Grid.Column="2">
+                        </ComboBox>
+
+                        <!-- Buttons to start / pause / stop the timer -->
+                        <Button
+                            Style="{StaticResource DefaultButton}"
+                            Command="{Binding StartFirstTimerCommand}"
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Content="Start" />
+                        <Button
+                            Style="{StaticResource DefaultButton}"
+                            Command="{Binding PauseFirstTimerCommand}"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Content="Pause" />
+                        <Button
+                            Style="{StaticResource DefaultButton}"
+                            Command="{Binding StopFirstTimerCommand}"
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            Content="Stop" />
+                    </Grid>
+                </GroupBox>
+
+                <!-- Timer #2 GroupBox-->
+                <GroupBox
+                    Style="{StaticResource UsualGroupBox}"
+                    Header="Timer #2"
+                    Grid.Row="0"
+                    Grid.Column="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="24" />
+                            <RowDefinition Height="24" />
+                            <RowDefinition Height="28" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Labels for the comboboxes below -->
+                        <Label
+                            Style="{StaticResource OrdinaryLabel}"
+                            Content="Hours"
+                            Grid.Row="0"
+                            Grid.Column="0">
+                        </Label>
+                        <Label
+                            Style="{StaticResource OrdinaryLabel}"
+                            Content="Minutes"
+                            Grid.Row="0"
+                            Grid.Column="1">
+                        </Label>
+                        <Label
+                            Style="{StaticResource OrdinaryLabel}"
+                            Content="Second"
+                            Grid.Row="0"
+                            Grid.Column="2">
+                        </Label>
+
+                        <!-- Comboboxes to select time for the timer -->
+                        <ComboBox
+                            Style="{StaticResource DefaultNoArrowComboBox}"
+                            ItemsSource="{Binding HoursList}"
+                            SelectedItem="{Binding SelectedHourSecondTimer}"
+                            Margin="3,0,3,0"
+                            Grid.Row="1"
+                            Grid.Column="0">
+                        </ComboBox>
+                        <ComboBox
+                            Style="{StaticResource DefaultNoArrowComboBox}"
+                            ItemsSource="{Binding MinutesList}"
+                            SelectedItem="{Binding SelectedMinuteSecondTimer}"
+                            Margin="3,0,3,0"
+                            Grid.Row="1"
+                            Grid.Column="1">
+                        </ComboBox>
+                        <ComboBox
+                            Style="{StaticResource DefaultNoArrowComboBox}"
+                            ItemsSource="{Binding SecondsList}"
+                            SelectedItem="{Binding SelectedSecondSecondTimer}"
+                            Margin="3,0,3,0"
+                            Grid.Row="1"
+                            Grid.Column="2">
+                        </ComboBox>
+
+                        <!-- Buttons to start / pause / stop the timer -->
+                        <Button
+                            Style="{StaticResource DefaultButton}"
+                            Command="{Binding StartSecondTimerCommand}"
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Content="Start" />
+                        <Button
+                            Style="{StaticResource DefaultButton}"
+                            Command="{Binding PauseSecondTimerCommand}"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Content="Pause" />
+                        <Button
+                            Style="{StaticResource DefaultButton}"
+                            Command="{Binding StopSecondTimerCommand}"
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            Content="Stop" />
+                    </Grid>
+                </GroupBox>
+
+                <!-- Timer #3 GroupBox-->
+                <GroupBox
+                    Style="{StaticResource UsualGroupBox}"
+                    Header="Timer #3"
+                    Grid.Row="0"
+                    Grid.Column="2">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="24" />
+                            <RowDefinition Height="24" />
+                            <RowDefinition Height="28" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Labels for the comboboxes below -->
+                        <Label
+                            Style="{StaticResource OrdinaryLabel}"
+                            Content="Hours"
+                            Grid.Row="0"
+                            Grid.Column="0">
+                        </Label>
+                        <Label
+                            Style="{StaticResource OrdinaryLabel}"
+                            Content="Minutes"
+                            Grid.Row="0"
+                            Grid.Column="1">
+                        </Label>
+                        <Label
+                            Style="{StaticResource OrdinaryLabel}"
+                            Content="Second"
+                            Grid.Row="0"
+                            Grid.Column="2">
+                        </Label>
+
+                        <!-- Comboboxes to select time for the timer -->
+                        <ComboBox
+                            Style="{StaticResource DefaultNoArrowComboBox}"
+                            ItemsSource="{Binding HoursList}"
+                            SelectedItem="{Binding SelectedHourThirdTimer}"
+                            Margin="3,0,3,0"
+                            Grid.Row="1"
+                            Grid.Column="0">
+                        </ComboBox>
+                        <ComboBox
+                            Style="{StaticResource DefaultNoArrowComboBox}"
+                            ItemsSource="{Binding MinutesList}"
+                            SelectedItem="{Binding SelectedMinuteThirdTimer}"
+                            Margin="3,0,3,0"
+                            Grid.Row="1"
+                            Grid.Column="1">
+                        </ComboBox>
+                        <ComboBox
+                            Style="{StaticResource DefaultNoArrowComboBox}"
+                            ItemsSource="{Binding SecondsList}"
+                            SelectedItem="{Binding SelectedSecondThirdTimer}"
+                            Margin="3,0,3,0"
+                            Grid.Row="1"
+                            Grid.Column="2">
+                        </ComboBox>
+
+                        <!-- Buttons to start / pause / stop the timer -->
+                        <Button
+                            Style="{StaticResource DefaultButton}"
+                            Command="{Binding StartThirdTimerCommand}"
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Content="Start" />
+                        <Button
+                            Style="{StaticResource DefaultButton}"
+                            Command="{Binding PauseThirdTimerCommand}"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Content="Pause" />
+                        <Button
+                            Style="{StaticResource DefaultButton}"
+                            Command="{Binding StopThirdTimerCommand}"
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            Content="Stop" />
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </StackPanel>
+    </Border>
+</Page>

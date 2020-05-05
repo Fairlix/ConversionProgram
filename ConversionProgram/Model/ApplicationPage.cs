@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ConversionProgram.Model;
-
-namespace ConversionProgram
+﻿namespace ConversionProgram
 {
     /// <summary>
     /// A page of the application
@@ -21,5 +14,15 @@ namespace ConversionProgram
         /// Calculator page
         /// </summary>
         Calculator = 1,
+
+        /// <summary>
+        /// StopwatchTimers page
+        /// </summary>
+        StopwatchTimers = 2,
+
+        /// <summary>
+        /// About page
+        /// </summary>
+        About = 3,
     }
 }

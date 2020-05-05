@@ -1,19 +1,11 @@
 ﻿using ConversionProgram.Model;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 
 namespace ConversionProgram.ViewModel
 {
     public class UnitConvertersVM : ViewModelBase
     {
-        private Window mWindow;
-
         #region Members and list for distance converter
 
         private double _distanceUnit1;
@@ -693,42 +685,42 @@ namespace ConversionProgram.ViewModel
             else if (SelectedDistanceUnit1.UnitName == "Kilometer" && SelectedDistanceUnit2.UnitName == "Meter")
             {
                 // Formula to convert Kilometer to meter = Kilometer * 1000
-                DistanceUnit2 = DistanceUnit1 * 1000;
+                DistanceUnit2 = DistanceUnit1 * 1_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Kilometer" && SelectedDistanceUnit2.UnitName == "Decimeter")
             {
                 // Formula to convert Kilometer to Decimeter = Kilometer * 10000
-                DistanceUnit2 = DistanceUnit1 * 10000;
+                DistanceUnit2 = DistanceUnit1 * 10_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Kilometer" && SelectedDistanceUnit2.UnitName == "Centimeter")
             {
                 // Formula to convert Kilometer to Centimeter = Kilometer * 100000
-                DistanceUnit2 = DistanceUnit1 * 100000;
+                DistanceUnit2 = DistanceUnit1 * 100_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Kilometer" && SelectedDistanceUnit2.UnitName == "Milimeter")
             {
                 // Formula to convert Kilometer to Milimeter = Kilometer * 1000000
-                DistanceUnit2 = DistanceUnit1 * 1000000;
+                DistanceUnit2 = DistanceUnit1 * 1_000_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Kilometer" && SelectedDistanceUnit2.UnitName == "Micrometer")
             {
                 // Formula to convert Kilometer to Micrometer = Kilometer * 10000
-                DistanceUnit2 = DistanceUnit1 * 1000000000;
+                DistanceUnit2 = DistanceUnit1 * 1_000_000_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Kilometer" && SelectedDistanceUnit2.UnitName == "Nanometer")
             {
                 // Formula to convert Kilometer to Nanometer = Kilometer * 10000
-                DistanceUnit2 = DistanceUnit1 * 1000000000000;
+                DistanceUnit2 = DistanceUnit1 * 1_000_000_000_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Kilometer" && SelectedDistanceUnit2.UnitName == "Mile")
             {
-                // Formula to convert Kilometer to Mile = Kilometer * 0.62137
-                DistanceUnit2 = DistanceUnit1 * 0.62137;
+                // Formula to convert Kilometer to Mile = Kilometer * 0.621371
+                DistanceUnit2 = DistanceUnit1 * 0.621371;
             }
             else if (SelectedDistanceUnit1.UnitName == "Kilometer" && SelectedDistanceUnit2.UnitName == "Yard")
             {
-                // Formula to convert Kilometer to Yard = Kilometer * 1094
-                DistanceUnit2 = DistanceUnit1 * 1094;
+                // Formula to convert Kilometer to Yard = Kilometer * 1093.61
+                DistanceUnit2 = DistanceUnit1 * 1093.61;
             }
             else if (SelectedDistanceUnit1.UnitName == "Kilometer" && SelectedDistanceUnit2.UnitName == "Foot")
             {
@@ -737,8 +729,8 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedDistanceUnit1.UnitName == "Kilometer" && SelectedDistanceUnit2.UnitName == "Inch")
             {
-                // Formula to convert Kilometer to Inch = Kilometer * 39370.07874
-                DistanceUnit2 = DistanceUnit1 * 39370.07874;
+                // Formula to convert Kilometer to Inch = Kilometer * 39_370.07874
+                DistanceUnit2 = DistanceUnit1 * 39_370.07874;
             }
 
             #endregion Conversion from Kilometer to any
@@ -759,7 +751,7 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedDistanceUnit1.UnitName == "Meter" && SelectedDistanceUnit2.UnitName == "Centimeter")
             {
-                // Formula to convert Meter to Centimeter = Meter * 100000
+                // Formula to convert Meter to Centimeter = Meter * 100
                 DistanceUnit2 = DistanceUnit1 * 100;
             }
             else if (SelectedDistanceUnit1.UnitName == "Meter" && SelectedDistanceUnit2.UnitName == "Milimeter")
@@ -769,13 +761,13 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedDistanceUnit1.UnitName == "Meter" && SelectedDistanceUnit2.UnitName == "Micrometer")
             {
-                // Formula to convert Meter to Micrometer = Meter * 1000000
-                DistanceUnit2 = DistanceUnit1 * 1000000;
+                // Formula to convert Meter to Micrometer = Meter * 1_000_000
+                DistanceUnit2 = DistanceUnit1 * 1_000_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Meter" && SelectedDistanceUnit2.UnitName == "Nanometer")
             {
-                // Formula to convert Meter to Nanometer = Meter * 1000000000
-                DistanceUnit2 = DistanceUnit1 * 1000000000;
+                // Formula to convert Meter to Nanometer = Meter * 1_000_000_000
+                DistanceUnit2 = DistanceUnit1 * 1_000_000_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Meter" && SelectedDistanceUnit2.UnitName == "Mile")
             {
@@ -784,18 +776,18 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedDistanceUnit1.UnitName == "Meter" && SelectedDistanceUnit2.UnitName == "Yard")
             {
-                // Formula to convert Meter to Yard = Meter * 1.094
-                DistanceUnit2 = DistanceUnit1 * 1.094;
+                // Formula to convert Meter to Yard = Meter * 1.09361
+                DistanceUnit2 = DistanceUnit1 * 1.09361;
             }
             else if (SelectedDistanceUnit1.UnitName == "Meter" && SelectedDistanceUnit2.UnitName == "Foot")
             {
-                // Formula to convert Meter to Foot = Meter * 3.281
-                DistanceUnit2 = DistanceUnit1 * 3.281;
+                // Formula to convert Meter to Foot = Meter * 3.28084
+                DistanceUnit2 = DistanceUnit1 * 3.28084;
             }
             else if (SelectedDistanceUnit1.UnitName == "Meter" && SelectedDistanceUnit2.UnitName == "Inch")
             {
-                // Formula to convert Meter to Inch = Meter * 39.37
-                DistanceUnit2 = DistanceUnit1 * 39.37;
+                // Formula to convert Meter to Inch = Meter * 39.3701
+                DistanceUnit2 = DistanceUnit1 * 39.3701;
             }
 
             #endregion Conversion from Meter to any
@@ -805,12 +797,12 @@ namespace ConversionProgram.ViewModel
             // Conversion starts when SelectedDistanceUnit1 and SelectedDistanceUnit2 are initialized with distance units
             else if (SelectedDistanceUnit1.UnitName == "Centimeter" && SelectedDistanceUnit2.UnitName == "Kilometer")
             {
-                // Formula to convert Centimeter to Kilometer = Centimeter / 100000
-                DistanceUnit2 = DistanceUnit1 / 100000;
+                // Formula to convert Centimeter to Kilometer = Centimeter / 100_000
+                DistanceUnit2 = DistanceUnit1 / 100_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Centimeter" && SelectedDistanceUnit2.UnitName == "Meter")
             {
-                // Formula to convert Centimeter to Centimeter = Centimeter / 100
+                // Formula to convert Centimeter to Meter = Centimeter / 100
                 DistanceUnit2 = DistanceUnit1 / 100;
             }
             // Handeling conversion from Centimeter to Centimeter
@@ -826,18 +818,18 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedDistanceUnit1.UnitName == "Centimeter" && SelectedDistanceUnit2.UnitName == "Micrometer")
             {
-                // Formula to convert Centimeter to Micrometer = Centimeter * 10000
-                DistanceUnit2 = DistanceUnit1 * 10000;
+                // Formula to convert Centimeter to Micrometer = Centimeter * 10_000
+                DistanceUnit2 = DistanceUnit1 * 10_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Centimeter" && SelectedDistanceUnit2.UnitName == "Nanometer")
             {
-                // Formula to convert Centimeter to Nanometer = Centimeter * 10000000
-                DistanceUnit2 = DistanceUnit1 * 10000000;
+                // Formula to convert Centimeter to Nanometer = Centimeter * 10_000_000
+                DistanceUnit2 = DistanceUnit1 * 10_000_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Centimeter" && SelectedDistanceUnit2.UnitName == "Mile")
             {
-                // Formula to convert Centimeter to Mile = Centimeter / 160934
-                DistanceUnit2 = DistanceUnit1 / 160934;
+                // Formula to convert Centimeter to Mile = Centimeter / 160_934
+                DistanceUnit2 = DistanceUnit1 / 160_934;
             }
             else if (SelectedDistanceUnit1.UnitName == "Centimeter" && SelectedDistanceUnit2.UnitName == "Yard")
             {
@@ -862,12 +854,12 @@ namespace ConversionProgram.ViewModel
             // Conversion starts when SelectedDistanceUnit1 and SelectedDistanceUnit2 are initialized with distance units
             else if (SelectedDistanceUnit1.UnitName == "Milimeter" && SelectedDistanceUnit2.UnitName == "Kilometer")
             {
-                // Formula to convert Milimeter to Kilometer = Milimeter / 1000000
-                DistanceUnit2 = DistanceUnit1 / 1000000;
+                // Formula to convert Milimeter to Kilometer = Milimeter / 1_000_000
+                DistanceUnit2 = DistanceUnit1 / 1_000_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Milimeter" && SelectedDistanceUnit2.UnitName == "Meter")
             {
-                // Formula to convert Milimeter to Centimeter = Milimeter / 100
+                // Formula to convert Milimeter to Centimeter = Milimeter / 1000
                 DistanceUnit2 = DistanceUnit1 / 1000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Milimeter" && SelectedDistanceUnit2.UnitName == "Centimeter")
@@ -888,13 +880,13 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedDistanceUnit1.UnitName == "Milimeter" && SelectedDistanceUnit2.UnitName == "Nanometer")
             {
-                // Formula to convert Milimeter to Nanometer = Milimeter * 10000000
-                DistanceUnit2 = DistanceUnit1 * 1000000;
+                // Formula to convert Milimeter to Nanometer = Milimeter * 1_000_000
+                DistanceUnit2 = DistanceUnit1 * 1_000_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Milimeter" && SelectedDistanceUnit2.UnitName == "Mile")
             {
-                // Formula to convert Milimeter to Mile = Milimeter / 160934
-                DistanceUnit2 = DistanceUnit1 / 1609340;
+                // Formula to convert Milimeter to Mile = Milimeter / 1_609_340
+                DistanceUnit2 = DistanceUnit1 / 1_609_340;
             }
             else if (SelectedDistanceUnit1.UnitName == "Milimeter" && SelectedDistanceUnit2.UnitName == "Yard")
             {
@@ -903,12 +895,12 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedDistanceUnit1.UnitName == "Milimeter" && SelectedDistanceUnit2.UnitName == "Foot")
             {
-                // Formula to convert Milimeter to Foot = Milimeter / 30.48
-                DistanceUnit2 = DistanceUnit1 / 305;
+                // Formula to convert Milimeter to Foot = Milimeter / 304.8
+                DistanceUnit2 = DistanceUnit1 / 304.8;
             }
             else if (SelectedDistanceUnit1.UnitName == "Milimeter" && SelectedDistanceUnit2.UnitName == "Inch")
             {
-                // Formula to convert Milimeter to Inch = Milimeter / 2.54
+                // Formula to convert Milimeter to Inch = Milimeter / 25.4
                 DistanceUnit2 = DistanceUnit1 / 25.4;
             }
 
@@ -919,22 +911,22 @@ namespace ConversionProgram.ViewModel
             // Conversion starts when SelectedDistanceUnit1 and SelectedDistanceUnit2 are initialized with distance units
             else if (SelectedDistanceUnit1.UnitName == "Micrometer" && SelectedDistanceUnit2.UnitName == "Kilometer")
             {
-                // Formula to convert Micrometer to Kilometer = Micrometer / 1000000000
-                DistanceUnit2 = DistanceUnit1 / 1000000000;
+                // Formula to convert Micrometer to Kilometer = Micrometer / 1_000_000_000
+                DistanceUnit2 = DistanceUnit1 / 1_000_000_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Micrometer" && SelectedDistanceUnit2.UnitName == "Meter")
             {
-                // Formula to convert Micrometer to meter = Micrometer / 1000000
-                DistanceUnit2 = DistanceUnit1 / 1000000;
+                // Formula to convert Micrometer to meter = Micrometer / 1_000_000
+                DistanceUnit2 = DistanceUnit1 / 1_000_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Micrometer" && SelectedDistanceUnit2.UnitName == "Centimeter")
             {
-                // Formula to convert Micrometer to Centimeter = Micrometer / 10000
-                DistanceUnit2 = DistanceUnit1 / 10000;
+                // Formula to convert Micrometer to Centimeter = Micrometer / 10_000
+                DistanceUnit2 = DistanceUnit1 / 10_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Micrometer" && SelectedDistanceUnit2.UnitName == "Milimeter")
             {
-                // Formula to convert Micrometer to Milimeter = Micrometer * 10000
+                // Formula to convert Micrometer to Milimeter = Micrometer * 1000
                 DistanceUnit2 = DistanceUnit1 / 1000;
             }
             // Handeling conversion from Micrometer to Micrometer
@@ -945,28 +937,28 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedDistanceUnit1.UnitName == "Micrometer" && SelectedDistanceUnit2.UnitName == "Nanometer")
             {
-                // Formula to convert Micrometer to Nanometer = Micrometer * 10000000
-                DistanceUnit2 = DistanceUnit1 * 10000;
+                // Formula to convert Micrometer to Nanometer = Micrometer * 1000
+                DistanceUnit2 = DistanceUnit1 * 1000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Micrometer" && SelectedDistanceUnit2.UnitName == "Mile")
             {
-                // Formula to convert Micrometer to Mile = Micrometer / 160934
-                DistanceUnit2 = DistanceUnit1 / 1609340000;
+                // Formula to convert Micrometer to Mile = Micrometer / 1_609_340_000
+                DistanceUnit2 = DistanceUnit1 / 1_609_340_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Micrometer" && SelectedDistanceUnit2.UnitName == "Yard")
             {
-                // Formula to convert Micrometer to Yard = Micrometer / 914400
-                DistanceUnit2 = DistanceUnit1 / 914400;
+                // Formula to convert Micrometer to Yard = Micrometer / 914_400
+                DistanceUnit2 = DistanceUnit1 / 914_400;
             }
             else if (SelectedDistanceUnit1.UnitName == "Micrometer" && SelectedDistanceUnit2.UnitName == "Foot")
             {
                 // Formula to convert Micrometer to Foot = Micrometer / 30.48
-                DistanceUnit2 = DistanceUnit1 / 304800;
+                DistanceUnit2 = DistanceUnit1 / 304_800;
             }
             else if (SelectedDistanceUnit1.UnitName == "Micrometer" && SelectedDistanceUnit2.UnitName == "Inch")
             {
                 // Formula to convert Micrometer to Inch = Micrometer / 2.54
-                DistanceUnit2 = DistanceUnit1 / 25400;
+                DistanceUnit2 = DistanceUnit1 / 25_400;
             }
 
             #endregion Conversion from Micrometer to any
@@ -976,28 +968,28 @@ namespace ConversionProgram.ViewModel
             // Conversion starts when SelectedDistanceUnit1 and SelectedDistanceUnit2 are initialized with distance units
             else if (SelectedDistanceUnit1.UnitName == "Nanometer" && SelectedDistanceUnit2.UnitName == "Kilometer")
             {
-                // Formula to convert Nanometer to Kilometer = Nanometer / 1000000000000
-                DistanceUnit2 = DistanceUnit1 / 1000000000000;
+                // Formula to convert Nanometer to Kilometer = Nanometer / 1_000_000_000_000
+                DistanceUnit2 = DistanceUnit1 / 1_000_000_000_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Nanometer" && SelectedDistanceUnit2.UnitName == "Meter")
             {
-                // Formula to convert Nanometer to meter = Nanometer / 1000000000
-                DistanceUnit2 = DistanceUnit1 / 1000000000;
+                // Formula to convert Nanometer to meter = Nanometer / 1_000_000_000
+                DistanceUnit2 = DistanceUnit1 / 1_000_000_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Nanometer" && SelectedDistanceUnit2.UnitName == "Centimeter")
             {
-                // Formula to convert Nanometer to Centimeter = Nanometer / 10000000
-                DistanceUnit2 = DistanceUnit1 / 10000000;
+                // Formula to convert Nanometer to Centimeter = Nanometer / 10_000_000
+                DistanceUnit2 = DistanceUnit1 / 10_000_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Nanometer" && SelectedDistanceUnit2.UnitName == "Milimeter")
             {
-                // Formula to convert Nanometer to Milimeter = Nanometer /  1000000
-                DistanceUnit2 = DistanceUnit1 / 1000000;
+                // Formula to convert Nanometer to Milimeter = Nanometer /  1_000_000
+                DistanceUnit2 = DistanceUnit1 / 1_000_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Nanometer" && SelectedDistanceUnit2.UnitName == "Micrometer")
             {
-                // Formula to convert Nanometer to Micrometer = Nanometer / 10000
-                DistanceUnit2 = DistanceUnit1 / 10000;
+                // Formula to convert Nanometer to Micrometer = Nanometer / 1000
+                DistanceUnit2 = DistanceUnit1 / 1000;
             }
             // Handeling conversion from Nanometer to Nanometer
             else if (SelectedDistanceUnit1.UnitName == "Nanometer" && SelectedDistanceUnit2.UnitName == "Nanometer")
@@ -1007,23 +999,23 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedDistanceUnit1.UnitName == "Nanometer" && SelectedDistanceUnit2.UnitName == "Mile")
             {
-                // Formula to convert Nanometer to Mile = Nanometer / 1609340000000
-                DistanceUnit2 = DistanceUnit1 / 1609340000000;
+                // Formula to convert Nanometer to Mile = Nanometer / 1_609_340_000_000
+                DistanceUnit2 = DistanceUnit1 / 1_609_340_000_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Nanometer" && SelectedDistanceUnit2.UnitName == "Yard")
             {
-                // Formula to convert Nanometer to Mile = Nanometer / 914400000
-                DistanceUnit2 = DistanceUnit1 / 914400000;
+                // Formula to convert Nanometer to Mile = Nanometer / 914_400_000
+                DistanceUnit2 = DistanceUnit1 / 914_400_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Nanometer" && SelectedDistanceUnit2.UnitName == "Foot")
             {
-                // Formula to convert Nanometer to Foot = Nanometer / 304800000
-                DistanceUnit2 = DistanceUnit1 / 304800000;
+                // Formula to convert Nanometer to Foot = Nanometer / 304_800_000
+                DistanceUnit2 = DistanceUnit1 / 304_800_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Nanometer" && SelectedDistanceUnit2.UnitName == "Inch")
             {
-                // Formula to convert Nanometer to Inch = Nanometer / 25400000
-                DistanceUnit2 = DistanceUnit1 / 25400000;
+                // Formula to convert Nanometer to Inch = Nanometer / 25_400_000
+                DistanceUnit2 = DistanceUnit1 / 25_400_000;
             }
 
             #endregion Conversion from Nanometer to any
@@ -1033,8 +1025,8 @@ namespace ConversionProgram.ViewModel
             // Conversion starts when SelectedDistanceUnit1 and SelectedDistanceUnit2 are initialized with distance units
             else if (SelectedDistanceUnit1.UnitName == "Mile" && SelectedDistanceUnit2.UnitName == "Kilometer")
             {
-                // Formula to convert Mile to Kilometer = Mile * 1.60934
-                DistanceUnit2 = DistanceUnit1 * 1.60934;
+                // Formula to convert Mile to Kilometer = Mile * 1.60_934
+                DistanceUnit2 = DistanceUnit1 * 1.60_934;
             }
             else if (SelectedDistanceUnit1.UnitName == "Mile" && SelectedDistanceUnit2.UnitName == "Meter")
             {
@@ -1043,23 +1035,23 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedDistanceUnit1.UnitName == "Mile" && SelectedDistanceUnit2.UnitName == "Centimeter")
             {
-                // Formula to convert Mile to Centimeter = Mile * 160934.4
-                DistanceUnit2 = DistanceUnit1 * 160934.4;
+                // Formula to convert Mile to Centimeter = Mile * 160_934.4
+                DistanceUnit2 = DistanceUnit1 * 160_934.4;
             }
             else if (SelectedDistanceUnit1.UnitName == "Mile" && SelectedDistanceUnit2.UnitName == "Milimeter")
             {
-                // Formula to convert Mile to Milimeter = Mile * 1609344
-                DistanceUnit2 = DistanceUnit1 * 1609344;
+                // Formula to convert Mile to Milimeter = Mile * 1_609_344
+                DistanceUnit2 = DistanceUnit1 * 1_609_344;
             }
             else if (SelectedDistanceUnit1.UnitName == "Mile" && SelectedDistanceUnit2.UnitName == "Micrometer")
             {
-                // Formula to convert Mile to Micrometer = Mile * 1609344000
-                DistanceUnit2 = DistanceUnit1 * 1609344000;
+                // Formula to convert Mile to Micrometer = Mile * 1_609_344_000
+                DistanceUnit2 = DistanceUnit1 * 1_609_344_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Mile" && SelectedDistanceUnit2.UnitName == "Nanometer")
             {
-                // Formula to convert Mile to Nanometer = Mile * 1609344000000
-                DistanceUnit2 = DistanceUnit1 * 1609344000000;
+                // Formula to convert Mile to Nanometer = Mile * 1_609_344_000_000
+                DistanceUnit2 = DistanceUnit1 * 1_609_344_000_000;
             }
             // Handeling conversion from Mile to Mile
             else if (SelectedDistanceUnit1.UnitName == "Mile" && SelectedDistanceUnit2.UnitName == "Mile")
@@ -1074,14 +1066,14 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedDistanceUnit1.UnitName == "Mile" && SelectedDistanceUnit2.UnitName == "Foot")
             {
-                // Formula to convert Mile to Foot = Mile * 1609344000000
+                // Formula to convert Mile to Foot = Mile * 5280
                 DistanceUnit2 = DistanceUnit1 * 5280;
             }
             // Handeling conversion from Mile to Mile
             else if (SelectedDistanceUnit1.UnitName == "Mile" && SelectedDistanceUnit2.UnitName == "Inch")
             {
-                // Formula to convert Mile to Inch = Mile * 63360
-                DistanceUnit2 = DistanceUnit1 * 63360;
+                // Formula to convert Mile to Inch = Mile * 63_360
+                DistanceUnit2 = DistanceUnit1 * 63_360;
             }
 
             #endregion Conversion from Mile to any
@@ -1096,8 +1088,8 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedDistanceUnit1.UnitName == "Yard" && SelectedDistanceUnit2.UnitName == "Meter")
             {
-                // Formula to convert Yard to meter = Yard / 1094
-                DistanceUnit2 = DistanceUnit1 / 1094;
+                // Formula to convert Yard to meter = Yard / 1.094
+                DistanceUnit2 = DistanceUnit1 / 1.094;
             }
             else if (SelectedDistanceUnit1.UnitName == "Yard" && SelectedDistanceUnit2.UnitName == "Centimeter")
             {
@@ -1106,18 +1098,18 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedDistanceUnit1.UnitName == "Yard" && SelectedDistanceUnit2.UnitName == "Milimeter")
             {
-                // Formula to convert Yard to Milimeter = Yard * 914
-                DistanceUnit2 = DistanceUnit1 * 914;
+                // Formula to convert Yard to Milimeter = Yard * 914.4
+                DistanceUnit2 = DistanceUnit1 * 914.4;
             }
             else if (SelectedDistanceUnit1.UnitName == "Yard" && SelectedDistanceUnit2.UnitName == "Micrometer")
             {
-                // Formula to convert Yard to Micrometer = Yard * 914400
-                DistanceUnit2 = DistanceUnit1 * 914400;
+                // Formula to convert Yard to Micrometer = Yard * 914_400
+                DistanceUnit2 = DistanceUnit1 * 914_400;
             }
             else if (SelectedDistanceUnit1.UnitName == "Yard" && SelectedDistanceUnit2.UnitName == "Nanometer")
             {
-                // Formula to convert Yard to Nanometer = Yard * 914400000
-                DistanceUnit2 = DistanceUnit1 * 914400000;
+                // Formula to convert Yard to Nanometer = Yard * 914_400_000
+                DistanceUnit2 = DistanceUnit1 * 914_400_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Yard" && SelectedDistanceUnit2.UnitName == "Mile")
             {
@@ -1167,13 +1159,13 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedDistanceUnit1.UnitName == "Foot" && SelectedDistanceUnit2.UnitName == "Micrometer")
             {
-                // Formula to convert Foot to Micrometer = Foot * 304800
-                DistanceUnit2 = DistanceUnit1 * 304800;
+                // Formula to convert Foot to Micrometer = Foot * 304_800
+                DistanceUnit2 = DistanceUnit1 * 304_800;
             }
             else if (SelectedDistanceUnit1.UnitName == "Foot" && SelectedDistanceUnit2.UnitName == "Nanometer")
             {
-                // Formula to convert Foot to Nanometer = Foot * 304800000
-                DistanceUnit2 = DistanceUnit1 * 304800000;
+                // Formula to convert Foot to Nanometer = Foot * 304_800_000
+                DistanceUnit2 = DistanceUnit1 * 304_800_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Foot" && SelectedDistanceUnit2.UnitName == "Mile")
             {
@@ -1205,8 +1197,8 @@ namespace ConversionProgram.ViewModel
             // Conversion starts when SelectedDistanceUnit1 and SelectedDistanceUnit2 are initialized with distance units
             else if (SelectedDistanceUnit1.UnitName == "Inch" && SelectedDistanceUnit2.UnitName == "Kilometer")
             {
-                // Formula to convert Inch to Kilometer = Inch / 39370
-                DistanceUnit2 = DistanceUnit1 / 39370;
+                // Formula to convert Inch to Kilometer = Inch / 39_370
+                DistanceUnit2 = DistanceUnit1 / 39_370;
             }
             else if (SelectedDistanceUnit1.UnitName == "Inch" && SelectedDistanceUnit2.UnitName == "Meter")
             {
@@ -1225,18 +1217,18 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedDistanceUnit1.UnitName == "Inch" && SelectedDistanceUnit2.UnitName == "Micrometer")
             {
-                // Formula to convert Inch to Micrometer = Inch * 25400
-                DistanceUnit2 = DistanceUnit1 * 25400;
+                // Formula to convert Inch to Micrometer = Inch * 25_400
+                DistanceUnit2 = DistanceUnit1 * 25_400;
             }
             else if (SelectedDistanceUnit1.UnitName == "Inch" && SelectedDistanceUnit2.UnitName == "Nanometer")
             {
-                // Formula to convert Inch to Nanometer = Inch * 25400000
-                DistanceUnit2 = DistanceUnit1 * 25400000;
+                // Formula to convert Inch to Nanometer = Inch * 25_400_000
+                DistanceUnit2 = DistanceUnit1 * 25_400_000;
             }
             else if (SelectedDistanceUnit1.UnitName == "Inch" && SelectedDistanceUnit2.UnitName == "Mile")
             {
-                // Formula to convert Inch to Foot = Inch * 63360
-                DistanceUnit2 = DistanceUnit1 * 63360;
+                // Formula to convert Inch to Foot = Inch * 63_360
+                DistanceUnit2 = DistanceUnit1 * 63_360;
             }
             else if (SelectedDistanceUnit1.UnitName == "Inch" && SelectedDistanceUnit2.UnitName == "Yard")
             {
@@ -1626,17 +1618,17 @@ namespace ConversionProgram.ViewModel
             if (SelectedFrequencyUnit1.UnitName == "Hertz" && SelectedFrequencyUnit2.UnitName == "Kilohertz")
             {
                 // Formula to convert Hertz to Kilohertz = Hertz / 1000
-                FrequencyUnit2 = FrequencyUnit1 / 1000;
+                FrequencyUnit2 = FrequencyUnit1 / 1_000;
             }
             else if (SelectedFrequencyUnit1.UnitName == "Hertz" && SelectedFrequencyUnit2.UnitName == "Megahertz")
             {
                 // Formula to convert Hertz to Kilohertz = Hertz / 1000000
-                FrequencyUnit2 = FrequencyUnit1 / 1000000;
+                FrequencyUnit2 = FrequencyUnit1 / 1_000_000;
             }
             else if (SelectedFrequencyUnit1.UnitName == "Hertz" && SelectedFrequencyUnit2.UnitName == "Gigahertz")
             {
-                // Formula to convert Hertz to Kilohertz = Hertz / 1000000000
-                FrequencyUnit2 = FrequencyUnit1 / 1000000000;
+                // Formula to convert Hertz to Kilohertz = Hertz / 1_000_000_000
+                FrequencyUnit2 = FrequencyUnit1 / 1_000_000_000;
             }
             else if (SelectedFrequencyUnit1.UnitName == "Hertz" && SelectedFrequencyUnit2.UnitName == "Hertz")
             {
@@ -1651,18 +1643,18 @@ namespace ConversionProgram.ViewModel
             // Conversion starts when SelectedFrequencyUnit1 and SelectedFrequencyUnit2 are initialized with velocity units
             if (SelectedFrequencyUnit1.UnitName == "Kilohertz" && SelectedFrequencyUnit2.UnitName == "Hertz")
             {
-                // Formula to convert Kilohertz to Hertz = Kilohertz * 1000
-                FrequencyUnit2 = FrequencyUnit1 * 1000;
+                // Formula to convert Kilohertz to Hertz = Kilohertz * 1_000
+                FrequencyUnit2 = FrequencyUnit1 * 1_000;
             }
             else if (SelectedFrequencyUnit1.UnitName == "Kilohertz" && SelectedFrequencyUnit2.UnitName == "Megahertz")
             {
-                // Formula to convert Kilohertz to Megahertz = Kilohertz / 1000
-                FrequencyUnit2 = FrequencyUnit1 / 1000;
+                // Formula to convert Kilohertz to Megahertz = Kilohertz / 1_000
+                FrequencyUnit2 = FrequencyUnit1 / 1_000;
             }
             else if (SelectedFrequencyUnit1.UnitName == "Kilohertz" && SelectedFrequencyUnit2.UnitName == "Gigahertz")
             {
-                // Formula to convert Kilohertz to Gigahertz = Kilohertz / 1000000
-                FrequencyUnit2 = FrequencyUnit1 / 1000000;
+                // Formula to convert Kilohertz to Gigahertz = Kilohertz / 1_000_000
+                FrequencyUnit2 = FrequencyUnit1 / 1_000_000;
             }
             else if (SelectedFrequencyUnit1.UnitName == "Kilohertz" && SelectedFrequencyUnit2.UnitName == "Kilohertz")
             {
@@ -1677,18 +1669,18 @@ namespace ConversionProgram.ViewModel
             // Conversion starts when SelectedFrequencyUnit1 and SelectedFrequencyUnit2 are initialized with velocity units
             if (SelectedFrequencyUnit1.UnitName == "Megahertz" && SelectedFrequencyUnit2.UnitName == "Hertz")
             {
-                // Formula to convert Megahertz to Hertz = Megahertz * 1000000
-                FrequencyUnit2 = FrequencyUnit1 * 1000000;
+                // Formula to convert Megahertz to Hertz = Megahertz * 1_000_000
+                FrequencyUnit2 = FrequencyUnit1 * 1_000_000;
             }
             else if (SelectedFrequencyUnit1.UnitName == "Megahertz" && SelectedFrequencyUnit2.UnitName == "Kilohertz")
             {
-                // Formula to convert Megahertz to Kilohertz = Megahertz * 1000
-                FrequencyUnit2 = FrequencyUnit1 * 1000;
+                // Formula to convert Megahertz to Kilohertz = Megahertz * 1_000
+                FrequencyUnit2 = FrequencyUnit1 * 1_000;
             }
             else if (SelectedFrequencyUnit1.UnitName == "Megahertz" && SelectedFrequencyUnit2.UnitName == "Gigahertz")
             {
                 // Formula to convert Megahertz to Gigahertz = Megahertz / 1000
-                FrequencyUnit2 = FrequencyUnit1 / 1000;
+                FrequencyUnit2 = FrequencyUnit1 / 1_000;
             }
             else if (SelectedFrequencyUnit1.UnitName == "Megahertz" && SelectedFrequencyUnit2.UnitName == "Megahertz")
             {
@@ -1703,18 +1695,18 @@ namespace ConversionProgram.ViewModel
             // Conversion starts when SelectedFrequencyUnit1 and SelectedFrequencyUnit2 are initialized with velocity units
             if (SelectedFrequencyUnit1.UnitName == "Gigahertz" && SelectedFrequencyUnit2.UnitName == "Hertz")
             {
-                // Formula to convert Gigahertz to Hertz = Gigahertz * 1000000000
-                FrequencyUnit2 = FrequencyUnit1 * 1000000000;
+                // Formula to convert Gigahertz to Hertz = Gigahertz * 1_000_000_000
+                FrequencyUnit2 = FrequencyUnit1 * 1_000_000_000;
             }
             else if (SelectedFrequencyUnit1.UnitName == "Gigahertz" && SelectedFrequencyUnit2.UnitName == "Kilohertz")
             {
-                // Formula to convert Gigahertz to Kilohertz = Gigahertz * 1000000
-                FrequencyUnit2 = FrequencyUnit1 * 1000000;
+                // Formula to convert Gigahertz to Kilohertz = Gigahertz * 1_000_000
+                FrequencyUnit2 = FrequencyUnit1 * 1_000_000;
             }
             else if (SelectedFrequencyUnit1.UnitName == "Gigahertz" && SelectedFrequencyUnit2.UnitName == "Megahertz")
             {
-                // Formula to convert Gigahertz to Megahertz = Gigahertz * 1000
-                FrequencyUnit2 = FrequencyUnit1 * 1000;
+                // Formula to convert Gigahertz to Megahertz = Gigahertz * 1_000
+                FrequencyUnit2 = FrequencyUnit1 * 1_000;
             }
             else if (SelectedFrequencyUnit1.UnitName == "Gigahertz" && SelectedFrequencyUnit2.UnitName == "Gigahertz")
             {
@@ -1757,18 +1749,18 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedMassUnit1.UnitName == "Tonne" && SelectedMassUnit2.UnitName == "Gram")
             {
-                // Formula to convert Tonne to Gram = Tonne * 1000000
-                MassUnit2 = MassUnit1 * 1000000;
+                // Formula to convert Tonne to Gram = Tonne * 1_000_000
+                MassUnit2 = MassUnit1 * 1_000_000;
             }
             else if (SelectedMassUnit1.UnitName == "Tonne" && SelectedMassUnit2.UnitName == "Milligram")
             {
-                // Formula to convert Tonne to Milligam = Tonne * 1000000000
-                MassUnit2 = MassUnit1 * 1000000000;
+                // Formula to convert Tonne to Milligam = Tonne * 1_000_000_000
+                MassUnit2 = MassUnit1 * 1_000_000_000;
             }
             else if (SelectedMassUnit1.UnitName == "Tonne" && SelectedMassUnit2.UnitName == "Microgram")
             {
-                // Formula to convert Tonne to Microgram = Tonne * 1000000000000
-                MassUnit2 = MassUnit1 * 1000000000000;
+                // Formula to convert Tonne to Microgram = Tonne * 1_000_000_000_000
+                MassUnit2 = MassUnit1 * 1_000_000_000_000;
             }
             else if (SelectedMassUnit1.UnitName == "Tonne" && SelectedMassUnit2.UnitName == "Imperial Ton")
             {
@@ -1792,8 +1784,8 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedMassUnit1.UnitName == "Tonne" && SelectedMassUnit2.UnitName == "Ounce")
             {
-                // Formula to convert Tonne to Ounce = Tonne * 35274
-                MassUnit2 = MassUnit1 * 35274;
+                // Formula to convert Tonne to Ounce = Tonne * 35_274
+                MassUnit2 = MassUnit1 * 35_274;
             }
             else if (SelectedMassUnit1.UnitName == "Tonne" && SelectedMassUnit2.UnitName == "Tonne")
             {
@@ -1818,13 +1810,13 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedMassUnit1.UnitName == "Kilogram" && SelectedMassUnit2.UnitName == "Milligram")
             {
-                // Formula to convert Kilogram to Milligam = Kilogram * 1000000
-                MassUnit2 = MassUnit1 * 1000000;
+                // Formula to convert Kilogram to Milligam = Kilogram * 1_000_000
+                MassUnit2 = MassUnit1 * 1_000_000;
             }
             else if (SelectedMassUnit1.UnitName == "Kilogram" && SelectedMassUnit2.UnitName == "Microgram")
             {
-                // Formula to convert Kilogram to Microgram = Kilogram * 1000000000
-                MassUnit2 = MassUnit1 * 1000000000;
+                // Formula to convert Kilogram to Microgram = Kilogram * 1_000_000_000
+                MassUnit2 = MassUnit1 * 1_000_000_000;
             }
             else if (SelectedMassUnit1.UnitName == "Kilogram" && SelectedMassUnit2.UnitName == "Imperial Ton")
             {
@@ -1864,8 +1856,8 @@ namespace ConversionProgram.ViewModel
             // Conversion starts when SelectedMassUnit1 and SelectedMassUnit2 are initialized with mass units
             if (SelectedMassUnit1.UnitName == "Gram" && SelectedMassUnit2.UnitName == "Tonne")
             {
-                // Formula to convert Gram to Tonne = Gram / 1000000
-                MassUnit2 = MassUnit1 / 1000000;
+                // Formula to convert Gram to Tonne = Gram / 1_000_000
+                MassUnit2 = MassUnit1 / 1_000_000;
             }
             else if (SelectedMassUnit1.UnitName == "Gram" && SelectedMassUnit2.UnitName == "Kilogram")
             {
@@ -1879,23 +1871,23 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedMassUnit1.UnitName == "Gram" && SelectedMassUnit2.UnitName == "Microgram")
             {
-                // Formula to convert Gram to Microgram = Gram * 1000000
-                MassUnit2 = MassUnit1 * 1000000;
+                // Formula to convert Gram to Microgram = Gram * 1_000_000
+                MassUnit2 = MassUnit1 * 1_000_000;
             }
             else if (SelectedMassUnit1.UnitName == "Gram" && SelectedMassUnit2.UnitName == "Imperial Ton")
             {
-                // Formula to convert Gram to Imperial Ton = Gram / 1016000
-                MassUnit2 = MassUnit1 / 1016000;
+                // Formula to convert Gram to Imperial Ton = Gram / 1_016_000
+                MassUnit2 = MassUnit1 / 1_016_000;
             }
             else if (SelectedMassUnit1.UnitName == "Gram" && SelectedMassUnit2.UnitName == "US Ton")
             {
-                // Formula to convert Gram to US Ton = Gram / 907185
-                MassUnit2 = MassUnit1 / 907185;
+                // Formula to convert Gram to US Ton = Gram / 907_185
+                MassUnit2 = MassUnit1 / 907_185;
             }
             else if (SelectedMassUnit1.UnitName == "Gram" && SelectedMassUnit2.UnitName == "Stone")
             {
-                // Formula to convert Gram to Stone = Gram / 6350
-                MassUnit2 = MassUnit1 / 6350;
+                // Formula to convert Gram to Stone = Gram / 6_350
+                MassUnit2 = MassUnit1 / 6_350;
             }
             else if (SelectedMassUnit1.UnitName == "Gram" && SelectedMassUnit2.UnitName == "Pound")
             {
@@ -1920,13 +1912,13 @@ namespace ConversionProgram.ViewModel
             // Conversion starts when SelectedMassUnit1 and SelectedMassUnit2 are initialized with mass units
             if (SelectedMassUnit1.UnitName == "Milligram" && SelectedMassUnit2.UnitName == "Tonne")
             {
-                // Formula to convert Milligram to Tonne = Milligram / 1000000000
-                MassUnit2 = MassUnit1 / 1000000000;
+                // Formula to convert Milligram to Tonne = Milligram / 1_000_000_000
+                MassUnit2 = MassUnit1 / 1_000_000_000;
             }
             else if (SelectedMassUnit1.UnitName == "Milligram" && SelectedMassUnit2.UnitName == "Kilogram")
             {
-                // Formula to convert Milligram to Kilogram = Milligram / 1000000
-                MassUnit2 = MassUnit1 / 1000000;
+                // Formula to convert Milligram to Kilogram = Milligram / 1_000_000
+                MassUnit2 = MassUnit1 / 1_000_000;
             }
             else if (SelectedMassUnit1.UnitName == "Milligram" && SelectedMassUnit2.UnitName == "Gram")
             {
@@ -1940,28 +1932,28 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedMassUnit1.UnitName == "Milligram" && SelectedMassUnit2.UnitName == "Imperial Ton")
             {
-                // Formula to convert Milligram to Imperial Ton = Milligram / 1016000000
-                MassUnit2 = MassUnit1 / 1016000000;
+                // Formula to convert Milligram to Imperial Ton = Milligram / 1_016_000_000
+                MassUnit2 = MassUnit1 / 1_016_000_000;
             }
             else if (SelectedMassUnit1.UnitName == "Milligram" && SelectedMassUnit2.UnitName == "US Ton")
             {
-                // Formula to convert Milligram to US Ton = Milligram / 907185000
-                MassUnit2 = MassUnit1 / 907185000;
+                // Formula to convert Milligram to US Ton = Milligram / 907_185_000
+                MassUnit2 = MassUnit1 / 907_185_000;
             }
             else if (SelectedMassUnit1.UnitName == "Milligram" && SelectedMassUnit2.UnitName == "Stone")
             {
-                // Formula to convert Milligram to Stone = Milligram / 6350000
-                MassUnit2 = MassUnit1 / 6350000;
+                // Formula to convert Milligram to Stone = Milligram / 6_350_000
+                MassUnit2 = MassUnit1 / 6_350_000;
             }
             else if (SelectedMassUnit1.UnitName == "Milligram" && SelectedMassUnit2.UnitName == "Pound")
             {
-                // Formula to convert Milligram to Pound = Milligram / 453592
-                MassUnit2 = MassUnit1 / 453592;
+                // Formula to convert Milligram to Pound = Milligram / 453_592
+                MassUnit2 = MassUnit1 / 453_592;
             }
             else if (SelectedMassUnit1.UnitName == "Milligram" && SelectedMassUnit2.UnitName == "Ounce")
             {
-                // Formula to convert Milligram to Ounce = Milligram / 28350
-                MassUnit2 = MassUnit1 / 28350;
+                // Formula to convert Milligram to Ounce = Milligram / 28_350
+                MassUnit2 = MassUnit1 / 28_350;
             }
             else if (SelectedMassUnit1.UnitName == "Milligram" && SelectedMassUnit2.UnitName == "Milligram")
             {
@@ -1976,18 +1968,18 @@ namespace ConversionProgram.ViewModel
             // Conversion starts when SelectedMassUnit1 and SelectedMassUnit2 are initialized with mass units
             if (SelectedMassUnit1.UnitName == "Microgram" && SelectedMassUnit2.UnitName == "Tonne")
             {
-                // Formula to convert Microgram to Tonne = Microgram / 1000000000000
-                MassUnit2 = MassUnit1 / 1000000000000;
+                // Formula to convert Microgram to Tonne = Microgram / 1_000_000_000_000
+                MassUnit2 = MassUnit1 / 1_000_000_000_000;
             }
             else if (SelectedMassUnit1.UnitName == "Microgram" && SelectedMassUnit2.UnitName == "Kilogram")
             {
-                // Formula to convert Microgram to Kilogram = Microgram / 1000000000
-                MassUnit2 = MassUnit1 / 1000000000;
+                // Formula to convert Microgram to Kilogram = Microgram / 1_000_000_000
+                MassUnit2 = MassUnit1 / 1_000_000_000;
             }
             else if (SelectedMassUnit1.UnitName == "Microgram" && SelectedMassUnit2.UnitName == "Gram")
             {
-                // Formula to convert Microgram to Milligam = Microgram / 1000000
-                MassUnit2 = MassUnit1 / 1000000;
+                // Formula to convert Microgram to Milligam = Microgram / 1_000_000
+                MassUnit2 = MassUnit1 / 1_000_000;
             }
             else if (SelectedMassUnit1.UnitName == "Microgram" && SelectedMassUnit2.UnitName == "Milligram")
             {
@@ -1996,28 +1988,28 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedMassUnit1.UnitName == "Microgram" && SelectedMassUnit2.UnitName == "Imperial Ton")
             {
-                // Formula to convert Microgram to Imperial Ton = Microgram / 1016000000000
-                MassUnit2 = MassUnit1 / 1016000000000;
+                // Formula to convert Microgram to Imperial Ton = Microgram / 1_016_000_000_000
+                MassUnit2 = MassUnit1 / 1_016_000_000_000;
             }
             else if (SelectedMassUnit1.UnitName == "Microgram" && SelectedMassUnit2.UnitName == "US Ton")
             {
-                // Formula to convert Microgram to US Ton = Microgram / 907185000000
-                MassUnit2 = MassUnit1 / 907185000000;
+                // Formula to convert Microgram to US Ton = Microgram / 907_185_000_000
+                MassUnit2 = MassUnit1 / 907_185_000_000;
             }
             else if (SelectedMassUnit1.UnitName == "Microgram" && SelectedMassUnit2.UnitName == "Stone")
             {
-                // Formula to convert Microgram to Stone = Microgram / 6350000000
-                MassUnit2 = MassUnit1 / 6350000000;
+                // Formula to convert Microgram to Stone = Microgram / 6_350_000_000
+                MassUnit2 = MassUnit1 / 6_350_000_000;
             }
             else if (SelectedMassUnit1.UnitName == "Microgram" && SelectedMassUnit2.UnitName == "Pound")
             {
-                // Formula to convert Microgram to Pound = Microgram / 453592000
-                MassUnit2 = MassUnit1 / 453592000;
+                // Formula to convert Microgram to Pound = Microgram / 453_592_000
+                MassUnit2 = MassUnit1 / 453_592_000;
             }
             else if (SelectedMassUnit1.UnitName == "Microgram" && SelectedMassUnit2.UnitName == "Ounce")
             {
-                // Formula to convert Microgram to Ounce = Microgram / 28350000
-                MassUnit2 = MassUnit1 / 28350000;
+                // Formula to convert Microgram to Ounce = Microgram / 28_350_000
+                MassUnit2 = MassUnit1 / 28_350_000;
             }
             else if (SelectedMassUnit1.UnitName == "Microgram" && SelectedMassUnit2.UnitName == "Microgram")
             {
@@ -2042,18 +2034,18 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedMassUnit1.UnitName == "Imperial Ton" && SelectedMassUnit2.UnitName == "Gram")
             {
-                // Formula to convert Imperial Ton to Gram = Imperial Ton * 1016000
-                MassUnit2 = MassUnit1 * 1016000;
+                // Formula to convert Imperial Ton to Gram = Imperial Ton * 1_016_000
+                MassUnit2 = MassUnit1 * 1_016_000;
             }
             else if (SelectedMassUnit1.UnitName == "Imperial Ton" && SelectedMassUnit2.UnitName == "Milligram")
             {
-                // Formula to convert Imperial Ton to Miligram = Imperial Ton * 1016000000
-                MassUnit2 = MassUnit1 * 1016000000;
+                // Formula to convert Imperial Ton to Miligram = Imperial Ton * 1_016_000_000
+                MassUnit2 = MassUnit1 * 1_016_000_000;
             }
             else if (SelectedMassUnit1.UnitName == "Imperial Ton" && SelectedMassUnit2.UnitName == "Microgram")
             {
-                // Formula to convert Imperial Ton to Microgram = Imperial Ton * 1016000000000
-                MassUnit2 = MassUnit1 * 1016000000000;
+                // Formula to convert Imperial Ton to Microgram = Imperial Ton * 1_016_000_000_000
+                MassUnit2 = MassUnit1 * 1_016_000_000_000;
             }
             else if (SelectedMassUnit1.UnitName == "Imperial Ton" && SelectedMassUnit2.UnitName == "US Ton")
             {
@@ -2072,8 +2064,8 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedMassUnit1.UnitName == "Imperial Ton" && SelectedMassUnit2.UnitName == "Ounce")
             {
-                // Formula to convert Imperial Ton to Ounce = Imperial Ton * 35840
-                MassUnit2 = MassUnit1 * 35840;
+                // Formula to convert Imperial Ton to Ounce = Imperial Ton * 35_840
+                MassUnit2 = MassUnit1 * 35_840;
             }
             else if (SelectedMassUnit1.UnitName == "Imperial Ton" && SelectedMassUnit2.UnitName == "Imperial Ton")
             {
@@ -2098,18 +2090,18 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedMassUnit1.UnitName == "US Ton" && SelectedMassUnit2.UnitName == "Gram")
             {
-                // Formula to convert US Ton to Gram = US Ton * 907185
-                MassUnit2 = MassUnit1 * 907185;
+                // Formula to convert US Ton to Gram = US Ton * 907_185
+                MassUnit2 = MassUnit1 * 907_185;
             }
             else if (SelectedMassUnit1.UnitName == "US Ton" && SelectedMassUnit2.UnitName == "Milligram")
             {
-                // Formula to convert US Ton to Miligram = US Ton * 907185000
-                MassUnit2 = MassUnit1 * 907185000;
+                // Formula to convert US Ton to Miligram = US Ton * 907_185_000
+                MassUnit2 = MassUnit1 * 907_185_000;
             }
             else if (SelectedMassUnit1.UnitName == "US Ton" && SelectedMassUnit2.UnitName == "Microgram")
             {
-                // Formula to convert US Ton to Microgram = US Ton * 907185000000
-                MassUnit2 = MassUnit1 * 907185000000;
+                // Formula to convert US Ton to Microgram = US Ton * 907_185_000_000
+                MassUnit2 = MassUnit1 * 907_185_000_000;
             }
             else if (SelectedMassUnit1.UnitName == "US Ton" && SelectedMassUnit2.UnitName == "Imperial Ton")
             {
@@ -2128,8 +2120,8 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedMassUnit1.UnitName == "US Ton" && SelectedMassUnit2.UnitName == "Ounce")
             {
-                // Formula to convert US Ton to Ounce = US Ton * 32000
-                MassUnit2 = MassUnit1 * 32000;
+                // Formula to convert US Ton to Ounce = US Ton * 32_000
+                MassUnit2 = MassUnit1 * 32_000;
             }
             else if (SelectedMassUnit1.UnitName == "US Ton" && SelectedMassUnit2.UnitName == "US Ton")
             {
@@ -2159,13 +2151,13 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedMassUnit1.UnitName == "Stone" && SelectedMassUnit2.UnitName == "Milligram")
             {
-                // Formula to convert Stone to Miligram = Stone * 6350000
-                MassUnit2 = MassUnit1 * 6350000;
+                // Formula to convert Stone to Miligram = Stone * 6_350_000
+                MassUnit2 = MassUnit1 * 6_350_000;
             }
             else if (SelectedMassUnit1.UnitName == "Stone" && SelectedMassUnit2.UnitName == "Microgram")
             {
-                // Formula to convert Stone to Microgram = Stone * 6350000000
-                MassUnit2 = MassUnit1 * 6350000000;
+                // Formula to convert Stone to Microgram = Stone * 6_350_000_000
+                MassUnit2 = MassUnit1 * 6_350_000_000;
             }
             else if (SelectedMassUnit1.UnitName == "Stone" && SelectedMassUnit2.UnitName == "Imperial Ton")
             {
@@ -2206,7 +2198,7 @@ namespace ConversionProgram.ViewModel
             else if (SelectedMassUnit1.UnitName == "Pound" && SelectedMassUnit2.UnitName == "Kilogram")
             {
                 // Formula to convert Pound to Kilogram = Pound / 2.205
-                MassUnit2 = MassUnit1 * 2.205;
+                MassUnit2 = MassUnit1 / 2.205;
             }
             else if (SelectedMassUnit1.UnitName == "Pound" && SelectedMassUnit2.UnitName == "Gram")
             {
@@ -2215,13 +2207,13 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedMassUnit1.UnitName == "Pound" && SelectedMassUnit2.UnitName == "Milligram")
             {
-                // Formula to convert Pound to Miligram = Pound * 453592
-                MassUnit2 = MassUnit1 * 453592;
+                // Formula to convert Pound to Miligram = Pound * 453_592
+                MassUnit2 = MassUnit1 * 453_592;
             }
             else if (SelectedMassUnit1.UnitName == "Pound" && SelectedMassUnit2.UnitName == "Microgram")
             {
-                // Formula to convert Pound to Microgram = Pound * 453592000
-                MassUnit2 = MassUnit1 * 453592000;
+                // Formula to convert Pound to Microgram = Pound * 453_592_000
+                MassUnit2 = MassUnit1 * 453_592_000;
             }
             else if (SelectedMassUnit1.UnitName == "Pound" && SelectedMassUnit2.UnitName == "Imperial Ton")
             {
@@ -2257,7 +2249,7 @@ namespace ConversionProgram.ViewModel
             if (SelectedMassUnit1.UnitName == "Ounce" && SelectedMassUnit2.UnitName == "Tonne")
             {
                 // Formula to convert Ounce to Tonne = Ounce / 35274
-                MassUnit2 = MassUnit1 / 35274;
+                MassUnit2 = MassUnit1 / 35_274;
             }
             else if (SelectedMassUnit1.UnitName == "Ounce" && SelectedMassUnit2.UnitName == "Kilogram")
             {
@@ -2271,23 +2263,23 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedMassUnit1.UnitName == "Ounce" && SelectedMassUnit2.UnitName == "Milligram")
             {
-                // Formula to convert Ounce to Miligram = Ounce * 28350
-                MassUnit2 = MassUnit1 * 28350;
+                // Formula to convert Ounce to Miligram = Ounce * 28_350
+                MassUnit2 = MassUnit1 * 28_350;
             }
             else if (SelectedMassUnit1.UnitName == "Ounce" && SelectedMassUnit2.UnitName == "Microgram")
             {
-                // Formula to convert Ounce to Microgram = Ounce * 28350000
-                MassUnit2 = MassUnit1 * 28350000;
+                // Formula to convert Ounce to Microgram = Ounce * 28_350_000
+                MassUnit2 = MassUnit1 * 28_350_000;
             }
             else if (SelectedMassUnit1.UnitName == "Ounce" && SelectedMassUnit2.UnitName == "Imperial Ton")
             {
-                // Formula to convert Ounce to Imperial Ton = Ounce / 35840
-                MassUnit2 = MassUnit1 / 35840;
+                // Formula to convert Ounce to Imperial Ton = Ounce / 35_840
+                MassUnit2 = MassUnit1 / 35_840;
             }
             else if (SelectedMassUnit1.UnitName == "Ounce" && SelectedMassUnit2.UnitName == "US Ton")
             {
-                // Formula to convert Ounce to Stone = Ounce / 32000
-                MassUnit2 = MassUnit1 / 32000;
+                // Formula to convert Ounce to Stone = Ounce / 32_000
+                MassUnit2 = MassUnit1 / 32_000;
             }
             else if (SelectedMassUnit1.UnitName == "Ounce" && SelectedMassUnit2.UnitName == "Stone")
             {
@@ -2345,13 +2337,13 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedAreaUnit1.UnitName == "Square kilometer" && SelectedAreaUnit2.UnitName == "Square meter")
             {
-                // Formula to convert Square kilometer to Square meter = Square kilometer * 1000000
-                AreaUnit2 = AreaUnit1 * 1000000;
+                // Formula to convert Square kilometer to Square meter = Square kilometer * 1_000_000
+                AreaUnit2 = AreaUnit1 * 1_000_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Square kilometer" && SelectedAreaUnit2.UnitName == "Square centimeter")
             {
-                // Formula to convert Square kilometer to Square centimeter = Square kilometer * 10000000000
-                AreaUnit2 = AreaUnit1 * 10000000000;
+                // Formula to convert Square kilometer to Square centimeter = Square kilometer * 10_000_000_000
+                AreaUnit2 = AreaUnit1 * 10_000_000_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Square kilometer" && SelectedAreaUnit2.UnitName == "Square mile")
             {
@@ -2365,18 +2357,18 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedAreaUnit1.UnitName == "Square kilometer" && SelectedAreaUnit2.UnitName == "Square yard")
             {
-                // Formula to convert Square kilometer to Square yards = Square kilometer * 1196000
-                AreaUnit2 = AreaUnit1 * 1196000;
+                // Formula to convert Square kilometer to Square yards = Square kilometer * 1_196_000
+                AreaUnit2 = AreaUnit1 * 1_196_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Square kilometer" && SelectedAreaUnit2.UnitName == "Square foot")
             {
-                // Formula to convert Square kilometer to Square foot = Square kilometer * 10760000
-                AreaUnit2 = AreaUnit1 * 10760000;
+                // Formula to convert Square kilometer to Square foot = Square kilometer * 10_760_000
+                AreaUnit2 = AreaUnit1 * 10_760_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Square kilometer" && SelectedAreaUnit2.UnitName == "Square inch")
             {
-                // Formula to convert Square kilometer to Square inch = Square kilometer * 1550000000
-                AreaUnit2 = AreaUnit1 * 1550000000;
+                // Formula to convert Square kilometer to Square inch = Square kilometer * 1_550_000_000
+                AreaUnit2 = AreaUnit1 * 1_550_000_000;
             }
 
             #endregion Conversion from Squre kilometer to any
@@ -2395,13 +2387,13 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedAreaUnit1.UnitName == "Hectare" && SelectedAreaUnit2.UnitName == "Square meter")
             {
-                // Formula to convert Hectare to Square meter = Square kilometer * 10000
-                AreaUnit2 = AreaUnit1 * 10000;
+                // Formula to convert Hectare to Square meter = Square kilometer * 10_000
+                AreaUnit2 = AreaUnit1 * 10_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Hectare" && SelectedAreaUnit2.UnitName == "Square centimeter")
             {
-                // Formula to convert Hectare to Square centimeter = Square kilometer * 100000000
-                AreaUnit2 = AreaUnit1 * 100000000;
+                // Formula to convert Hectare to Square centimeter = Square kilometer * 100_000_000
+                AreaUnit2 = AreaUnit1 * 100_000_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Hectare" && SelectedAreaUnit2.UnitName == "Square mile")
             {
@@ -2415,18 +2407,18 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedAreaUnit1.UnitName == "Hectare" && SelectedAreaUnit2.UnitName == "Square yard")
             {
-                // Formula to convert Hectare to Square yards = Square kilometer * 11960
-                AreaUnit2 = AreaUnit1 * 11960;
+                // Formula to convert Hectare to Square yards = Square kilometer * 11_960
+                AreaUnit2 = AreaUnit1 * 11_960;
             }
             else if (SelectedAreaUnit1.UnitName == "Hectare" && SelectedAreaUnit2.UnitName == "Square foot")
             {
-                // Formula to convert Hectare to Square foot = Square kilometer * 107639
-                AreaUnit2 = AreaUnit1 * 107639;
+                // Formula to convert Hectare to Square foot = Square kilometer * 107_639
+                AreaUnit2 = AreaUnit1 * 107_639;
             }
             else if (SelectedAreaUnit1.UnitName == "Hectare" && SelectedAreaUnit2.UnitName == "Square inch")
             {
-                // Formula to convert Hectare to Square inch = Square kilometer * 15500000
-                AreaUnit2 = AreaUnit1 * 15500000;
+                // Formula to convert Hectare to Square inch = Square kilometer * 15_500_000
+                AreaUnit2 = AreaUnit1 * 15_500_000;
             }
 
             #endregion Conversion from Hectare to any
@@ -2435,13 +2427,13 @@ namespace ConversionProgram.ViewModel
 
             else if (SelectedAreaUnit1.UnitName == "Square meter" && SelectedAreaUnit2.UnitName == "Square kilometer")
             {
-                // Formula to convert Square meter to Square kilometer = Square meter / 1000000
-                AreaUnit2 = AreaUnit1 / 1000000;
+                // Formula to convert Square meter to Square kilometer = Square meter / 1_000_000
+                AreaUnit2 = AreaUnit1 / 1_000_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Square meter" && SelectedAreaUnit2.UnitName == "Hectare")
             {
-                // Formula to convert Square meter Hectare = Square meter / 10000
-                AreaUnit2 = AreaUnit1 / 10000;
+                // Formula to convert Square meter Hectare = Square meter / 10_000
+                AreaUnit2 = AreaUnit1 / 10_000;
             }
             // Handeling conversion from Square meter to Square meter
             else if (SelectedAreaUnit1.UnitName == "Square meter" && SelectedAreaUnit2.UnitName == "Square meter")
@@ -2450,13 +2442,13 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedAreaUnit1.UnitName == "Square meter" && SelectedAreaUnit2.UnitName == "Square centimeter")
             {
-                // Formula to convert Square meter to Square centimeter = Square meter * 10000
-                AreaUnit2 = AreaUnit1 * 10000;
+                // Formula to convert Square meter to Square centimeter = Square meter * 10_000
+                AreaUnit2 = AreaUnit1 * 10_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Square meter" && SelectedAreaUnit2.UnitName == "Square mile")
             {
-                // Formula to convert Square meter to Square Mile = Square meter / 2590000
-                AreaUnit2 = AreaUnit1 / 2590000;
+                // Formula to convert Square meter to Square Mile = Square meter / 2_590_000
+                AreaUnit2 = AreaUnit1 / 2_590_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Square meter" && SelectedAreaUnit2.UnitName == "Acre")
             {
@@ -2485,18 +2477,18 @@ namespace ConversionProgram.ViewModel
 
             else if (SelectedAreaUnit1.UnitName == "Square centimeter" && SelectedAreaUnit2.UnitName == "Square kilometer")
             {
-                // Formula to convert Square centimeter to Square kilometer = Square centimeter / 10000000000
-                AreaUnit2 = AreaUnit1 / 10000000000;
+                // Formula to convert Square centimeter to Square kilometer = Square centimeter / 10_000_000_000
+                AreaUnit2 = AreaUnit1 / 10_000_000_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Square centimeter" && SelectedAreaUnit2.UnitName == "Hectare")
             {
-                // Formula to convert Square centimeter Hectare = Square centimeter / 100000000
-                AreaUnit2 = AreaUnit1 / 100000000;
+                // Formula to convert Square centimeter Hectare = Square centimeter / 100_000_000
+                AreaUnit2 = AreaUnit1 / 100_000_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Square centimeter" && SelectedAreaUnit2.UnitName == "Square meter")
             {
-                // Formula to convert Square centimeter to Square centimeter = Square centimeter / 10000
-                AreaUnit2 = AreaUnit1 / 10000;
+                // Formula to convert Square centimeter to Square centimeter = Square centimeter / 10_000
+                AreaUnit2 = AreaUnit1 / 10_000;
             }
             // Handeling conversion from Square centimeter to Square centimeter
             else if (SelectedAreaUnit1.UnitName == "Square centimeter" && SelectedAreaUnit2.UnitName == "Square centimeter")
@@ -2505,13 +2497,13 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedAreaUnit1.UnitName == "Square centimeter" && SelectedAreaUnit2.UnitName == "Square mile")
             {
-                // Formula to convert Square centimeter to Square Mile = Square centimeter / 25900000000
-                AreaUnit2 = AreaUnit1 / 25900000000;
+                // Formula to convert Square centimeter to Square Mile = Square centimeter / 25_900_000_000
+                AreaUnit2 = AreaUnit1 / 25_900_000_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Square centimeter" && SelectedAreaUnit2.UnitName == "Acre")
             {
-                // Formula to convert Square centimeter to Square acre = Square centimeter / 40470000
-                AreaUnit2 = AreaUnit1 / 40470000;
+                // Formula to convert Square centimeter to Square acre = Square centimeter / 40_470_000
+                AreaUnit2 = AreaUnit1 / 40_470_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Square centimeter" && SelectedAreaUnit2.UnitName == "Square yard")
             {
@@ -2545,13 +2537,13 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedAreaUnit1.UnitName == "Square mile" && SelectedAreaUnit2.UnitName == "Square meter")
             {
-                // Formula to convert Square mile to Square meter = Square mile * 2590000
-                AreaUnit2 = AreaUnit1 * 2590000;
+                // Formula to convert Square mile to Square meter = Square mile * 2_590_000
+                AreaUnit2 = AreaUnit1 * 2_590_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Square mile" && SelectedAreaUnit2.UnitName == "Square centimeter")
             {
-                // Formula to convert Square mile to Square Mile = Square mile * 25900000000
-                AreaUnit2 = AreaUnit1 * 25900000000;
+                // Formula to convert Square mile to Square Mile = Square mile * 25_900_000_000
+                AreaUnit2 = AreaUnit1 * 25_900_000_000;
             }
             // Handeling conversion from Square mile to Square mile
             else if (SelectedAreaUnit1.UnitName == "Square mile" && SelectedAreaUnit2.UnitName == "Square mile")
@@ -2565,18 +2557,18 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedAreaUnit1.UnitName == "Square mile" && SelectedAreaUnit2.UnitName == "Square yard")
             {
-                // Formula to convert Square mile to Square yards = Square mile * 3098000
-                AreaUnit2 = AreaUnit1 * 3098000;
+                // Formula to convert Square mile to Square yards = Square mile * 3_098_000
+                AreaUnit2 = AreaUnit1 * 3_098_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Square mile" && SelectedAreaUnit2.UnitName == "Square foot")
             {
-                // Formula to convert Square mile to Square foot = Square mile * 27880000
-                AreaUnit2 = AreaUnit1 * 27880000;
+                // Formula to convert Square mile to Square foot = Square mile * 27_880_000
+                AreaUnit2 = AreaUnit1 * 27_880_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Square mile" && SelectedAreaUnit2.UnitName == "Square inch")
             {
-                // Formula to convert Square mile to Square inch = Square mile * 4014000000
-                AreaUnit2 = AreaUnit1 * 4014000000;
+                // Formula to convert Square mile to Square inch = Square mile * 4_014_000_000
+                AreaUnit2 = AreaUnit1 * 4_014_000_000;
             }
 
             #endregion Conversion from Square mile to any
@@ -2600,8 +2592,8 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedAreaUnit1.UnitName == "Acre" && SelectedAreaUnit2.UnitName == "Square centimeter")
             {
-                // Formula to convert Acre to Square Mile = Acre * 40470000
-                AreaUnit2 = AreaUnit1 * 40470000;
+                // Formula to convert Acre to Square Mile = Acre * 40_470_000
+                AreaUnit2 = AreaUnit1 * 40_470_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Acre" && SelectedAreaUnit2.UnitName == "Square mile")
             {
@@ -2620,13 +2612,13 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedAreaUnit1.UnitName == "Acre" && SelectedAreaUnit2.UnitName == "Square foot")
             {
-                // Formula to convert Acre to Square foot = Acre * 43560
-                AreaUnit2 = AreaUnit1 * 43560;
+                // Formula to convert Acre to Square foot = Acre * 43_560
+                AreaUnit2 = AreaUnit1 * 43_560;
             }
             else if (SelectedAreaUnit1.UnitName == "Acre" && SelectedAreaUnit2.UnitName == "Square inch")
             {
-                // Formula to convert Acre to Square inch = Acre * 6273000
-                AreaUnit2 = AreaUnit1 * 6273000;
+                // Formula to convert Acre to Square inch = Acre * 6_273_000
+                AreaUnit2 = AreaUnit1 * 6_273_600;
             }
 
             #endregion Conversion from Acre to any
@@ -2635,13 +2627,13 @@ namespace ConversionProgram.ViewModel
 
             else if (SelectedAreaUnit1.UnitName == "Square yard" && SelectedAreaUnit2.UnitName == "Square kilometer")
             {
-                // Formula to convert Square yard to Square kilometer = Square yard / 1196000
-                AreaUnit2 = AreaUnit1 / 1196000;
+                // Formula to convert Square yard to Square kilometer = Square yard / 1_196_000
+                AreaUnit2 = AreaUnit1 / 1_196_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Square yard" && SelectedAreaUnit2.UnitName == "Hectare")
             {
-                // Formula to convert Square yard Hectare = Square yard / 11960
-                AreaUnit2 = AreaUnit1 / 11960;
+                // Formula to convert Square yard Hectare = Square yard / 11_960
+                AreaUnit2 = AreaUnit1 / 11_960;
             }
             else if (SelectedAreaUnit1.UnitName == "Square yard" && SelectedAreaUnit2.UnitName == "Square meter")
             {
@@ -2655,8 +2647,8 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedAreaUnit1.UnitName == "Square yard" && SelectedAreaUnit2.UnitName == "Square mile")
             {
-                // Formula to convert Square yard to Square mile = Square yard / 3098000
-                AreaUnit2 = AreaUnit1 / 3098000;
+                // Formula to convert Square yard to Square mile = Square yard / 3_098_000
+                AreaUnit2 = AreaUnit1 / 3_098_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Square yard" && SelectedAreaUnit2.UnitName == "Acre")
             {
@@ -2685,13 +2677,13 @@ namespace ConversionProgram.ViewModel
 
             else if (SelectedAreaUnit1.UnitName == "Square foot" && SelectedAreaUnit2.UnitName == "Square kilometer")
             {
-                // Formula to convert Square foot to Square kilometer = Square foot / 10760000
-                AreaUnit2 = AreaUnit1 / 10760000;
+                // Formula to convert Square foot to Square kilometer = Square foot / 10_760_000
+                AreaUnit2 = AreaUnit1 / 10_760_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Square foot" && SelectedAreaUnit2.UnitName == "Hectare")
             {
-                // Formula to convert Square foot Hectare = Square foot / 107639
-                AreaUnit2 = AreaUnit1 / 107639;
+                // Formula to convert Square foot Hectare = Square foot / 107_639
+                AreaUnit2 = AreaUnit1 / 107_639;
             }
             else if (SelectedAreaUnit1.UnitName == "Square foot" && SelectedAreaUnit2.UnitName == "Square meter")
             {
@@ -2701,17 +2693,17 @@ namespace ConversionProgram.ViewModel
             else if (SelectedAreaUnit1.UnitName == "Square foot" && SelectedAreaUnit2.UnitName == "Square centimeter")
             {
                 // Formula to convert Square foot to Square Mile = Square foot * 929
-                AreaUnit2 = AreaUnit1 * 8361;
+                AreaUnit2 = AreaUnit1 * 929;
             }
             else if (SelectedAreaUnit1.UnitName == "Square foot" && SelectedAreaUnit2.UnitName == "Square mile")
             {
-                // Formula to convert Square foot to Square mile = Square foot / 27880000
-                AreaUnit2 = AreaUnit1 / 27880000;
+                // Formula to convert Square foot to Square mile = Square foot / 27_880_000
+                AreaUnit2 = AreaUnit1 / 27_880_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Square foot" && SelectedAreaUnit2.UnitName == "Acre")
             {
-                // Formula to convert Square foot to Acre = Square foot / 43560
-                AreaUnit2 = AreaUnit1 / 43560;
+                // Formula to convert Square foot to Acre = Square foot / 43_560
+                AreaUnit2 = AreaUnit1 / 43_560;
             }
             else if (SelectedAreaUnit1.UnitName == "Square foot" && SelectedAreaUnit2.UnitName == "Square yard")
             {
@@ -2735,13 +2727,13 @@ namespace ConversionProgram.ViewModel
 
             else if (SelectedAreaUnit1.UnitName == "Square inch" && SelectedAreaUnit2.UnitName == "Square kilometer")
             {
-                // Formula to convert Square inch to Square kilometer = Square inch / 1550000000
-                AreaUnit2 = AreaUnit1 / 1550000000;
+                // Formula to convert Square inch to Square kilometer = Square inch / 1_550_000_000
+                AreaUnit2 = AreaUnit1 / 1_550_000_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Square inch" && SelectedAreaUnit2.UnitName == "Hectare")
             {
-                // Formula to convert Square inch Hectare = Square inch / 15500000
-                AreaUnit2 = AreaUnit1 / 15500000;
+                // Formula to convert Square inch Hectare = Square inch / 15_500_000
+                AreaUnit2 = AreaUnit1 / 15_500_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Square inch" && SelectedAreaUnit2.UnitName == "Square meter")
             {
@@ -2755,13 +2747,13 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedAreaUnit1.UnitName == "Square inch" && SelectedAreaUnit2.UnitName == "Square mile")
             {
-                // Formula to convert Square inch to Square mile = Square inch / 4014000000
-                AreaUnit2 = AreaUnit1 / 4014000000;
+                // Formula to convert Square inch to Square mile = Square inch / 4_014_000_000
+                AreaUnit2 = AreaUnit1 / 4_014_000_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Square inch" && SelectedAreaUnit2.UnitName == "Acre")
             {
-                // Formula to convert Square inch to Acre = Square inch / 6273000
-                AreaUnit2 = AreaUnit1 / 6273000;
+                // Formula to convert Square inch to Acre = Square inch / 6_273_000
+                AreaUnit2 = AreaUnit1 / 6_273_000;
             }
             else if (SelectedAreaUnit1.UnitName == "Square inch" && SelectedAreaUnit2.UnitName == "Square yard")
             {
@@ -2813,7 +2805,7 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedTimeUnit1.UnitName == "Year" && SelectedTimeUnit2.UnitName == "Week")
             {
-                // 1 Year = 51.143 weeks
+                // 1 Year = 52.143 weeks
                 TimeUnit2 = TimeUnit1 * 52.143;
             }
             else if (SelectedTimeUnit1.UnitName == "Year" && SelectedTimeUnit2.UnitName == "Day")
@@ -2828,17 +2820,17 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedTimeUnit1.UnitName == "Year" && SelectedTimeUnit2.UnitName == "Minute")
             {
-                // 1 Year =  525600 minutes
+                // 1 Year =  525_600 minutes
                 TimeUnit2 = TimeUnit1 * 525_600;
             }
             else if (SelectedTimeUnit1.UnitName == "Year" && SelectedTimeUnit2.UnitName == "Second")
             {
-                // 1 Year = 31540000 seconds
+                // 1 Year = 31_540_000 seconds
                 TimeUnit2 = TimeUnit1 * 31_540_000;
             }
             else if (SelectedTimeUnit1.UnitName == "Year" && SelectedTimeUnit2.UnitName == "Millisecond")
             {
-                // 1 Year = 31540000000 milliseconds
+                // 1 Year = 31_540_000_000 milliseconds
                 TimeUnit2 = TimeUnit1 * 31_540_000_000;
             }
 
@@ -2873,17 +2865,17 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedTimeUnit1.UnitName == "Month" && SelectedTimeUnit2.UnitName == "Minute")
             {
-                // 1 Month =  43800 minutes
-                TimeUnit2 = TimeUnit1 * 43800;
+                // 1 Month =  43_800 minutes
+                TimeUnit2 = TimeUnit1 * 43_800;
             }
             else if (SelectedTimeUnit1.UnitName == "Month" && SelectedTimeUnit2.UnitName == "Second")
             {
-                // 1 Month = 2628000 seconds
+                // 1 Month = 2_628_000 seconds
                 TimeUnit2 = TimeUnit1 * 2_628_000;
             }
             else if (SelectedTimeUnit1.UnitName == "Month" && SelectedTimeUnit2.UnitName == "Millisecond")
             {
-                // 1 Month = 31540000000 milliseconds
+                // 1 Month = 2_628_000_000 milliseconds
                 TimeUnit2 = TimeUnit1 * 2_628_000_000;
             }
 
@@ -2893,7 +2885,7 @@ namespace ConversionProgram.ViewModel
 
             else if (SelectedTimeUnit1.UnitName == "Week" && SelectedTimeUnit2.UnitName == "Year")
             {
-                // 1 Week = 0.0101781 year
+                // 1 Week = 0.0191781 year
                 TimeUnit2 = TimeUnit1 / 52.143;
             }
             else if (SelectedTimeUnit1.UnitName == "Week" && SelectedTimeUnit2.UnitName == "Month")
@@ -2919,7 +2911,7 @@ namespace ConversionProgram.ViewModel
             else if (SelectedTimeUnit1.UnitName == "Week" && SelectedTimeUnit2.UnitName == "Minute")
             {
                 // 1 Week =  10080 minutes
-                TimeUnit2 = TimeUnit1 * 10080;
+                TimeUnit2 = TimeUnit1 * 10_080;
             }
             else if (SelectedTimeUnit1.UnitName == "Week" && SelectedTimeUnit2.UnitName == "Second")
             {
@@ -2949,7 +2941,7 @@ namespace ConversionProgram.ViewModel
             else if (SelectedTimeUnit1.UnitName == "Day" && SelectedTimeUnit2.UnitName == "Week")
             {
                 // 1 Day = 0.142857
-                TimeUnit2 = TimeUnit1 / 0.142857;
+                TimeUnit2 = TimeUnit1 / 7;
             }
             // Handeling conversion from Day to Day
             else if (SelectedTimeUnit1.UnitName == "Day" && SelectedTimeUnit2.UnitName == "Day")
@@ -2969,7 +2961,7 @@ namespace ConversionProgram.ViewModel
             else if (SelectedTimeUnit1.UnitName == "Day" && SelectedTimeUnit2.UnitName == "Second")
             {
                 // 1 Day = 86400 seconds
-                TimeUnit2 = TimeUnit1 * 86400;
+                TimeUnit2 = TimeUnit1 * 86_400;
             }
             else if (SelectedTimeUnit1.UnitName == "Day" && SelectedTimeUnit2.UnitName == "Millisecond")
             {
@@ -3029,18 +3021,18 @@ namespace ConversionProgram.ViewModel
             else if (SelectedTimeUnit1.UnitName == "Minute" && SelectedTimeUnit2.UnitName == "Year")
             {
                 // 1 Minute = 0.0000019026 year
-                TimeUnit2 = TimeUnit1 / 525600;
+                TimeUnit2 = TimeUnit1 / 525_600;
             }
             else if (SelectedTimeUnit1.UnitName == "Minute" && SelectedTimeUnit2.UnitName == "Month")
             {
                 // 1 Minute = 0.000022831 month
-                TimeUnit2 = TimeUnit1 / 43800;
+                TimeUnit2 = TimeUnit1 / 43_800;
             }
             else if (SelectedTimeUnit1.UnitName == "Minute" && SelectedTimeUnit2.UnitName == "Week")
             {
                 // 1 Minute = 0.000099206 week
 
-                TimeUnit2 = TimeUnit1 / 10080;
+                TimeUnit2 = TimeUnit1 / 10_080;
             }
             else if (SelectedTimeUnit1.UnitName == "Minute" && SelectedTimeUnit2.UnitName == "Day")
             {
@@ -3064,7 +3056,7 @@ namespace ConversionProgram.ViewModel
             }
             else if (SelectedTimeUnit1.UnitName == "Minute" && SelectedTimeUnit2.UnitName == "Millisecond")
             {
-                // 1 Minute = 60000 milliseconds
+                // 1 Minute = 60_000 milliseconds
                 TimeUnit2 = TimeUnit1 * 60_000;
             }
 
@@ -3091,7 +3083,7 @@ namespace ConversionProgram.ViewModel
             else if (SelectedTimeUnit1.UnitName == "Second" && SelectedTimeUnit2.UnitName == "Day")
             {
                 // 1 Second =  0.00001574 days
-                TimeUnit2 = TimeUnit1 / 86400;
+                TimeUnit2 = TimeUnit1 / 86_400;
             }
             else if (SelectedTimeUnit1.UnitName == "Second" && SelectedTimeUnit2.UnitName == "Hour")
             {

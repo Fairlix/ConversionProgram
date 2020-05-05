@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows.Markup;
 
@@ -29,7 +25,7 @@ namespace ConversionProgram
         }
 
         /// <summary>
-        /// The mathod to convert one type to another
+        /// The method to convert one type to another
         /// </summary>
         /// <param name="value"></param>
         /// <param name="targetType"></param>

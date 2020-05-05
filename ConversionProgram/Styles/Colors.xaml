@@ -5,17 +5,17 @@
     <Color x:Key="LightBlue">#E2F6F8</Color>
     <SolidColorBrush x:Key="LightBlueBrush" Color="{StaticResource LightBlue}" />
 
-    <Color x:Key="GroupboxBackgroundLightGray">#F9F9F9</Color>
-    <SolidColorBrush x:Key="GroupboxBackgroundLightGrayBrush" Color="{StaticResource GroupboxBackgroundLightGray}" />
-
-    <Color x:Key="ToolBarBackgroundSlightlyGray">#efefef</Color>
-    <SolidColorBrush x:Key="ToolBarBackgroundSlightlyGrayBrush" Color="{StaticResource ToolBarBackgroundSlightlyGray}" />
-
-    <Color x:Key="ToolBarDarkGray">#696969</Color>
-    <SolidColorBrush x:Key="ToolBarDarkGrayBrush" Color="{StaticResource ToolBarDarkGray}" />
+    <Color x:Key="LightGray">#F9F9F9</Color>
+    <SolidColorBrush x:Key="LightGrayBrush" Color="{StaticResource LightGray}" />
 
     <Color x:Key="LightGreen">#d2f8d2</Color>
     <SolidColorBrush x:Key="LightGreenBrush" Color="{StaticResource LightGreen}" />
+
+    <Color x:Key="LightRed">#ffc6c4</Color>
+    <SolidColorBrush x:Key="LightRedBrush" Color="{StaticResource LightRed}" />
+
+    <Color x:Key="LightOrange">#fed8b1</Color>
+    <SolidColorBrush x:Key="LightOrangeBrush" Color="{StaticResource LightOrange}" />
 
     <Color x:Key="DefaultGray">#f0f0f0</Color>
     <SolidColorBrush x:Key="DefaultGrayBrush" Color="{StaticResource DefaultGray}" />

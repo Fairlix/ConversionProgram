@@ -27,7 +27,7 @@
                         <Border BorderThickness="2" BorderBrush="{StaticResource SlightlyPurpleBrush}">
                             <Grid>
 
-                                <!-- Opacity mask fpr corner on grid -->
+                                <!-- Opacity mask for corner on grid -->
                                 <Border x:Name="Container"
                                         Background="{StaticResource VeryDarkGrayBrush}"
                                         Opacity="0.6" />
@@ -107,7 +107,8 @@
     </WindowChrome.WindowChrome>
 
     <StackPanel>
-        <Border BorderBrush="{StaticResource SlightlyPurpleBrush}" BorderThickness="1" CornerRadius="3" Margin="-1,0,-1,0">
+        <!-- Inside border below the toolbar -->
+        <Border BorderBrush="{StaticResource SlightlyPurpleBrush}" BorderThickness="1" Margin="-1,0,-1,0">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="25" />
@@ -117,23 +118,78 @@
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-                <Button Style="{StaticResource TopToolBarButton}"
-                        Name="btnCalculators"
-                        Click="btnCalculators_Click"
+                <!-- Button to open the Calculator page -->
+                <Border Grid.Column="0"
+                        BorderThickness="0,0,1,0"
+                        BorderBrush="WhiteSmoke">
+                    <Button Style="{StaticResource TopToolBarButton}"
+                        BorderBrush="WhiteSmoke"
                         Content="Calculators"
-                        Command="{Binding }">
-                </Button>
+                        Command="{Binding OpenCalculatorPageCommand}"
+                        VerticalContentAlignment="Center">
+                    </Button>
+                </Border>
 
-                <Button Style="{StaticResource TopToolBarButton}"
-                        Grid.Column="1"
-                        Name="btnConverters"
-                        Click="btnConverters_Click"
-                        Content="Converters">
-                </Button>
+                <!-- Button to open the Converters page-->
+                <Border Grid.Column="1"
+                        BorderThickness="0,0,1,0"
+                        BorderBrush="WhiteSmoke">
+                    <Button Style="{StaticResource TopToolBarButton}"
+                        Content="Converters"
+                        Command="{Binding OpenConverterPageCommand}">
+                    </Button>
+                </Border>
+
+                <!-- Button to open Stopwatches page-->
+                <Border Grid.Column="2"
+                        BorderThickness="0,0,1,0"
+                        BorderBrush="WhiteSmoke">
+                    <Button Style="{StaticResource TopToolBarButton}"
+                        Content="Stopwatch-Timers"
+                        Command="{Binding OpenStopwatchTimerPageCommand}">
+                    </Button>
+                </Border>
+
+                <!-- Menu item view -->
+                <Border Grid.Column="3"
+                        BorderThickness="1,0,0,0"
+                        BorderBrush="WhiteSmoke"
+
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center">
+                    <!-- Menu to hold a few items-->
+                    <Menu
+                        Foreground="WhiteSmoke"
+                        Background="Transparent">
+                        <MenuItem Header="View Menu"
+                                  Foreground="WhiteSmoke"
+                                  Style="{StaticResource DefaultMenuItem}"
+                                  Padding="5,4,5,0"
+                                  Width="72" Height="25">
+                            <MenuItem Header="Always on top"
+                                      Command="{Binding WindowAlwaysOnTopCommand}"
+                                      Style="{StaticResource DefaultMenuItem}"
+                                      Margin="0,0,8,0">
+                            </MenuItem>
+                        </MenuItem>
+                    </Menu>
+                </Border>
+
+                <!-- Buton about page -->
+                <Border Grid.Column="4"
+                        BorderThickness="1,0,0,0"
+                        BorderBrush="WhiteSmoke">
+                    <Button Style="{StaticResource TopToolBarButton}"
+                            Content="About"
+                            Command="{Binding OpenAboutPageCommand}" />
+                </Border>
             </Grid>
         </Border>
+        <!-- Main frame for the pages -->
         <Border Background="Transparent" Margin="5">
             <Grid>
                 <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Background="Transparent" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}" />

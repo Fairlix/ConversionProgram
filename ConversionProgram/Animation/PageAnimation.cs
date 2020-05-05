@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConversionProgram.Animation
+﻿namespace ConversionProgram.Animation
 {
     /// <summary>
     /// Styles of page animations for appearing / disappearing
